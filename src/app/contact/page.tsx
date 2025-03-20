@@ -83,7 +83,7 @@ export default function ContactPage() {
               {isSubmitted ? (
                 <div className="rounded-lg glass-card p-6 bg-green-50/50 dark:bg-green-900/20">
                   <h3 className="text-xl font-bold text-green-600 dark:text-green-400">Thank You!</h3>
-                  <p className="mt-2">Your message has been received. We'll get back to you shortly.</p>
+                  <p className="mt-2">Your message has been received. We will get back to you shortly.</p>
                   <Button className="mt-4" onClick={() => setIsSubmitted(false)}>
                     Send Another Message
                   </Button>
@@ -96,7 +96,7 @@ export default function ContactPage() {
                       <Input
                         id="name"
                         name="name"
-                        placeholder="John Smith"
+                        placeholder="Technova"
                         required
                         value={formData.name}
                         onChange={handleChange}
@@ -108,7 +108,7 @@ export default function ContactPage() {
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="technova@example.com"
                         required
                         value={formData.email}
                         onChange={handleChange}
@@ -121,7 +121,7 @@ export default function ContactPage() {
                       <Input
                         id="phone"
                         name="phone"
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+92 (345) 261-5590"
                         value={formData.phone}
                         onChange={handleChange}
                       />
@@ -181,11 +181,11 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-medium">Address</h4>
                       <p className="text-sm text-muted-foreground">
-                        123 Tech Street, Suite 456
+                        b-52 Gulshan iqbal , Karachi
                         <br />
-                        Silicon Valley, CA 94000
+                        Block -  75300
                         <br />
-                        United States
+                        Pakistan
                       </p>
                     </div>
                   </div>
@@ -193,14 +193,15 @@ export default function ContactPage() {
                     <Phone className="h-5 w-5 text-primary mt-0.5" />
                     <div>
                       <h4 className="font-medium">Phone</h4>
-                      <p className="text-sm text-muted-foreground">+1 (555) 123-4567</p>
+                      <p className="text-sm text-muted-foreground">+92 (345) 261-5590</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <Mail className="h-5 w-5 text-primary mt-0.5" />
                     <div>
+
                       <h4 className="font-medium">Email</h4>
-                      <p className="text-sm text-muted-foreground">info@technova.com</p>
+                      <p className="text-sm text-muted-foreground">novatech058@gmail.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -208,9 +209,9 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-medium">Business Hours</h4>
                       <p className="text-sm text-muted-foreground">
-                        Monday - Friday: 9:00 AM - 6:00 PM
+                        Monday - Saturday : 9:00 AM - 6:00 PM
                         <br />
-                        Saturday - Sunday: Closed
+                        Sunday: Closed
                       </p>
                     </div>
                   </div>
@@ -221,15 +222,15 @@ export default function ContactPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-medium">Headquarters</h4>
-                    <p className="text-sm text-muted-foreground">Silicon Valley, California</p>
+                    <p className="text-sm text-muted-foreground">Gulshan Karachi</p>
                   </div>
                   <div>
                     <h4 className="font-medium">Development Center</h4>
-                    <p className="text-sm text-muted-foreground">Austin, Texas</p>
+                    <p className="text-sm text-muted-foreground">Pakistan</p>
                   </div>
                   <div>
                     <h4 className="font-medium">International Office</h4>
-                    <p className="text-sm text-muted-foreground">London, United Kingdom</p>
+                    <p className="text-sm text-muted-foreground">Dubai</p>
                   </div>
                 </div>
               </div>
@@ -260,16 +261,16 @@ export default function ContactPage() {
             <div className="rounded-lg glass-card p-6">
               <h3 className="text-lg font-bold">How long does a typical project take?</h3>
               <p className="mt-2 text-muted-foreground">
-                Project timelines vary depending on complexity and scope. A simple website might take 4-6 weeks, while a
-                complex enterprise application could take several months. We'll provide a detailed timeline during our
+                Project timelines vary depending on complexity and scope. A simple website might take 4-6 weeks while a
+                complex enterprise application could take several months. We will provide a detailed timeline during our
                 initial consultation.
               </p>
             </div>
             <div className="rounded-lg glass-card p-6">
               <h3 className="text-lg font-bold">What is your pricing model?</h3>
               <p className="mt-2 text-muted-foreground">
-                We offer flexible pricing models including fixed-price projects, time and materials, and retainer
-                arrangements. The best model depends on your project's requirements and we'll discuss options during our
+                We offer flexible pricing models including fixed-price projects time and materials and retainer
+                arrangements. The best model depends on your projects requirements and we will discuss options during our
                 consultation.
               </p>
             </div>

@@ -1,179 +1,39 @@
-import Link from "next/link"
 import Image from "next/image"
-import { ArrowRight, Code, Smartphone, Layout, Database, Cloud, CheckCircle } from "lucide-react"
+import Link from "next/link"
+import { CheckCircle, Users, Award, Clock, Zap, Heart } from "lucide-react"
 
-export default function Home() {
+export default function AboutPage() {
   return (
     <div className="flex flex-col">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-purple-100 via-teal-50 to-green-100 dark:from-purple-900/30 dark:via-teal-900/30 dark:to-green-900/30 section-padding">
+      <section className="bg-gradient-to-br from-purple-100 via-teal-50 to-green-100 dark:from-purple-900/30 dark:via-teal-900/30 dark:to-green-900/30 section-padding">
         <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1000')] opacity-5 bg-repeat"></div>
         <div className="container px-4 md:px-6 relative">
-          <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 xl:grid-cols-2">
-            <div className="flex flex-col justify-center space-y-4">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Transforming Ideas into <span className="gradient-text">Digital Reality</span>
-                </h1>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Technova Software House delivers cutting-edge software solutions that drive business growth and
-                  innovation.
-                </p>
-              </div>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Link
-                  href="/contact"
-                  className="inline-flex h-10 items-center justify-center rounded-md btn-primary px-8 text-sm font-medium shadow transition-colors focus-visible:outline-none focus-visible:ring-1"
-                >
-                  Get Started
-                </Link>
-                <Link
-                  href="/projects"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-input glass px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1"
-                >
-                  Our Work
-                </Link>
-              </div>
-            </div>
-            <div className="flex items-center justify-center">
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-teal-500/10 to-green-500/10 rounded-lg blur-xl"></div>
-                <Image
-                  src="/placeholder.svg?height=500&width=500"
-                  alt="Hero Image"
-                  width={500}
-                  height={500}
-                  className="relative rounded-lg object-cover shadow-2xl"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section className="bg-white dark:bg-gray-950 section-padding">
-        <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                Our Services
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                What We <span className="gradient-text">Offer</span>
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Comprehensive software development services tailored to your business needs
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
+                About <span className="gradient-text">Technova</span>
+              </h1>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                We are a team of passionate developers, designers, and strategists dedicated to creating exceptional
+                software solutions.
               </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 mb-4">
-                <Code className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">Web Development</h3>
-              <p className="text-muted-foreground mt-2">
-                Custom web applications and responsive websites built with the latest technologies.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-purple-600 dark:text-purple-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400 mb-4">
-                <Smartphone className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">Mobile Apps</h3>
-              <p className="text-muted-foreground mt-2">
-                Native and cross-platform mobile applications for iOS and Android devices.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-teal-600 dark:text-teal-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 mb-4">
-                <Layout className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">UI/UX Design</h3>
-              <p className="text-muted-foreground mt-2">
-                User-centered design that enhances user experience and drives engagement.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-green-600 dark:text-green-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400 mb-4">
-                <Database className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">Database Solutions</h3>
-              <p className="text-muted-foreground mt-2">
-                Efficient database design, optimization, and management for your applications.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-purple-600 dark:text-purple-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400 mb-4">
-                <Cloud className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">Cloud Solutions</h3>
-              <p className="text-muted-foreground mt-2">
-                Scalable cloud infrastructure and deployment services for your applications.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-teal-600 dark:text-teal-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card p-6 transition-all hover:shadow-xl">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400 mb-4">
-                <CheckCircle className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold">QA & Testing</h3>
-              <p className="text-muted-foreground mt-2">
-                Comprehensive testing services to ensure the quality and reliability of your software.
-              </p>
-              <Link
-                href="#"
-                className="mt-4 inline-flex items-center text-sm text-green-600 dark:text-green-400 hover:underline"
-              >
-                Learn more <ArrowRight className="ml-1 h-4 w-4" />
-              </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
-      <section className="bg-gradient-to-br from-purple-50 to-teal-50 dark:from-purple-900/10 dark:to-teal-900/10 section-padding">
+      {/* Our Story */}
+      <section className="bg-white dark:bg-gray-950 section-padding">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="flex items-center justify-center">
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-teal-500/10 rounded-lg blur-xl"></div>
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Why Choose Us"
-                  width={600}
+                  src="/about.jpeg?height=400&width=600"
+                  alt="Our Story"
+                  width={500}
                   height={400}
                   className="relative rounded-lg object-cover shadow-xl"
                 />
@@ -182,232 +42,159 @@ export default function Home() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                  Why Choose Us
+                  Our Story
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-                  Excellence in <span className="gradient-text">Software Development</span>
+                  From <span className="gradient-text">Vision</span> to <span className="gradient-text">Reality</span>
                 </h2>
-                <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">
-                  At Technova, we combine technical expertise with industry knowledge to deliver exceptional software
-                  solutions.
+                <p className="text-muted-foreground">
+                  Founded in 2022 Technova Software House began with a simple mission: to help businesses leverage
+                  technology to achieve their goals. What started as a small team of three developers has grown into a
+                  full-service software development company with a global client base.
+                </p>
+                <p className="text-muted-foreground">
+                  Over the years we have helped startups launch their first products assisted mid-sized companies in
+                  digital transformation, and partnered with enterprises to modernize their systems. Our journey has
+                  been defined by continuous learning innovation and a commitment to excellence.
+                </p>
+                <p className="text-muted-foreground">
+                  Today, Technova stands as a trusted partner for businesses seeking reliable, scalable, and innovative
+                  software solutions. Our team combines technical expertise with industry knowledge to deliver results
+                  that exceed expectations.
                 </p>
               </div>
-              <ul className="grid gap-4">
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Experienced Team</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Our team of skilled developers, designers, and project managers brings years of industry
-                      experience.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-teal-600 dark:text-teal-400 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Cutting-edge Technologies</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We stay updated with the latest technologies and frameworks to deliver modern solutions.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-green-600 dark:text-green-400 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Client-focused Approach</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We prioritize understanding your business needs to deliver tailored solutions.
-                    </p>
-                  </div>
-                </li>
-                <li className="flex items-start gap-2">
-                  <CheckCircle className="h-5 w-5 text-purple-600 dark:text-purple-400 mt-0.5" />
-                  <div>
-                    <h3 className="font-medium">Timely Delivery</h3>
-                    <p className="text-sm text-muted-foreground">
-                      We adhere to project timelines and deliver high-quality solutions on schedule.
-                    </p>
-                  </div>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Projects */}
+      {/* Our Mission & Vision */}
+      <section className="bg-gradient-to-br from-purple-50 to-teal-50 dark:from-purple-900/10 dark:to-teal-900/10 section-padding">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+            <div className="space-y-2">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+                Our <span className="gradient-text">Mission</span> & <span className="gradient-text">Vision</span>
+              </h2>
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                Guiding principles that drive our work and shape our future
+              </p>
+            </div>
+          </div>
+          <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2">
+            <div className="rounded-lg glass-card p-6">
+              <div className="flex flex-col gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold">Our Mission</h3>
+                <p className="text-muted-foreground">
+                  To empower businesses with innovative software solutions that drive growth, efficiency, and
+                  competitive advantage. We are committed to delivering high-quality, user-centered products that solve
+                  real-world problems and create lasting value for our clients.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg glass-card p-6">
+              <div className="flex flex-col gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400">
+                  <Heart className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold">Our Vision</h3>
+                <p className="text-muted-foreground">
+                  To be a global leader in software development, recognized for our technical excellence, innovative
+                  solutions, and exceptional client service. We aspire to create a positive impact on businesses and
+                  communities through technology, while fostering a culture of continuous learning and growth.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Values */}
       <section className="bg-white dark:bg-gray-950 section-padding">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                Featured Projects
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Our Recent <span className="gradient-text">Work</span>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+                Our Core <span className="gradient-text">Values</span>
               </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Explore some of our successful projects that showcase our expertise
-              </p>
-            </div>
-          </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
-            <div className="group relative overflow-hidden rounded-lg glass-card shadow-sm transition-all hover:shadow-xl">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-purple-teal"></div>
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Project 1"
-                width={400}
-                height={300}
-                className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold">E-commerce Platform</h3>
-                <p className="text-muted-foreground mt-2">
-                  A full-featured online store with payment integration and inventory management.
-                </p>
-                <Link
-                  href="/projects"
-                  className="mt-4 inline-flex items-center text-sm text-purple-600 dark:text-purple-400 hover:underline"
-                >
-                  View details <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card shadow-sm transition-all hover:shadow-xl">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-teal-green"></div>
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Project 2"
-                width={400}
-                height={300}
-                className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Healthcare App</h3>
-                <p className="text-muted-foreground mt-2">
-                  A mobile application for patient management and appointment scheduling.
-                </p>
-                <Link
-                  href="/projects"
-                  className="mt-4 inline-flex items-center text-sm text-teal-600 dark:text-teal-400 hover:underline"
-                >
-                  View details <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg glass-card shadow-sm transition-all hover:shadow-xl">
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-purple-green"></div>
-              <Image
-                src="/placeholder.svg?height=300&width=400"
-                alt="Project 3"
-                width={400}
-                height={300}
-                className="aspect-video w-full object-cover transition-transform group-hover:scale-105"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-bold">Financial Dashboard</h3>
-                <p className="text-muted-foreground mt-2">
-                  An analytics dashboard for real-time financial data visualization.
-                </p>
-                <Link
-                  href="/projects"
-                  className="mt-4 inline-flex items-center text-sm text-green-600 dark:text-green-400 hover:underline"
-                >
-                  View details <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <Link
-              href="/projects"
-              className="inline-flex h-10 items-center justify-center rounded-md border border-input glass px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1"
-            >
-              View All Projects
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="bg-gradient-to-br from-teal-50 to-green-50 dark:from-teal-900/10 dark:to-green-900/10 section-padding">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <div className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2">
-                Testimonials
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                What Our <span className="gradient-text">Clients Say</span>
-              </h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Hear from businesses that have experienced our exceptional service
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
+                The principles that guide our decisions and define our culture
               </p>
             </div>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
             <div className="rounded-lg glass-card p-6 shadow-sm">
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/placeholder.svg?height=60&width=60"
-                    alt="Client"
-                    width={60}
-                    height={60}
-                    className="rounded-full border-2 border-purple-200 dark:border-purple-800"
-                  />
-                  <div>
-                    <h3 className="font-medium">Sarah Johnson</h3>
-                    <p className="text-sm text-muted-foreground">CEO, TechStart</p>
-                  </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
+                  <Award className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold">Excellence</h3>
                 <p className="text-muted-foreground">
-                  "Technova delivered our e-commerce platform on time and within budget. Their team was professional and
-                  responsive throughout the project."
+                  We strive for excellence in everything we do, from code quality to client communication. We set high
+                  standards and continuously work to exceed them.
                 </p>
               </div>
             </div>
             <div className="rounded-lg glass-card p-6 shadow-sm">
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/placeholder.svg?height=60&width=60"
-                    alt="Client"
-                    width={60}
-                    height={60}
-                    className="rounded-full border-2 border-teal-200 dark:border-teal-800"
-                  />
-                  <div>
-                    <h3 className="font-medium">Michael Chen</h3>
-                    <p className="text-sm text-muted-foreground">CTO, HealthPlus</p>
-                  </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400">
+                  <Users className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold">Collaboration</h3>
                 <p className="text-muted-foreground">
-                  "The healthcare app developed by Technova has transformed our patient management process. Their
-                  attention to detail and understanding of our needs was impressive."
+                  We believe in the power of teamwork and collaboration. We work closely with our clients and within our
+                  team to achieve the best results.
                 </p>
               </div>
             </div>
             <div className="rounded-lg glass-card p-6 shadow-sm">
               <div className="flex flex-col gap-4">
-                <div className="flex items-center gap-4">
-                  <Image
-                    src="/placeholder.svg?height=60&width=60"
-                    alt="Client"
-                    width={60}
-                    height={60}
-                    className="rounded-full border-2 border-green-200 dark:border-green-800"
-                  />
-                  <div>
-                    <h3 className="font-medium">Emily Rodriguez</h3>
-                    <p className="text-sm text-muted-foreground">Marketing Director, GlobalFin</p>
-                  </div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
+                  <Clock className="h-6 w-6" />
                 </div>
+                <h3 className="text-xl font-bold">Reliability</h3>
                 <p className="text-muted-foreground">
-                  "The financial dashboard created by Technova has given us valuable insights into our business
-                  performance. Their team's expertise in data visualization is exceptional."
+                  We deliver on our promises and meet our commitments. Our clients can count on us for timely,
+                  high-quality solutions.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg glass-card p-6 shadow-sm">
+              <div className="flex flex-col gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-400">
+                  <CheckCircle className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold">Integrity</h3>
+                <p className="text-muted-foreground">
+                  We conduct our business with honesty, transparency, and ethical practices. We build trust through our
+                  actions and decisions.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg glass-card p-6 shadow-sm">
+              <div className="flex flex-col gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-teal-100 text-teal-600 dark:bg-teal-900/30 dark:text-teal-400">
+                  <Zap className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold">Innovation</h3>
+                <p className="text-muted-foreground">
+                  We embrace new technologies and approaches to solve complex problems. We encourage creativity and
+                  continuous learning.
+                </p>
+              </div>
+            </div>
+            <div className="rounded-lg glass-card p-6 shadow-sm">
+              <div className="flex flex-col gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-400">
+                  <Heart className="h-6 w-6" />
+                </div>
+                <h3 className="text-xl font-bold">Client Focus</h3>
+                <p className="text-muted-foreground">
+                  We put our clients at the center of everything we do. Their success is our success, and we are
+                  committed to helping them achieve their goals.
                 </p>
               </div>
             </div>
@@ -420,11 +207,11 @@ export default function Home() {
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Ready to Transform Your Ideas?
-              </h2>
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Join Our Journey</h2>
               <p className="mx-auto max-w-[700px] md:text-xl/relaxed">
-                Let's discuss how Technova can help you achieve your business goals with custom software solutions.
+                Partner with Technova and experience the difference of working with a team that
+                is passionate about your
+                success.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -435,10 +222,10 @@ export default function Home() {
                 Contact Us
               </Link>
               <Link
-                href="/about"
+                href="/team"
                 className="inline-flex h-10 items-center justify-center rounded-md btn-outline px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1"
               >
-                Learn More
+                Meet Our Team
               </Link>
             </div>
           </div>
