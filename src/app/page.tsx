@@ -293,7 +293,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover-lift">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-emerald-500"></div>
               <Image
-                src="/AAb.png?height=400&width=600"
+                src="/AAb.PNG?height=400&width=600"
                 alt="Project 2"
                 width={600}
                 height={400}
@@ -316,7 +316,7 @@ export default function Home() {
             <div className="group relative overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover-lift sm:col-span-2 lg:col-span-1">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-violet-600"></div>
               <Image
-                src="/Abc.png?height=400&width=600"
+                src="/Abc.PNG?height=400&width=600"
                 alt="Project 3"
                 width={600}
                 height={400}
