@@ -45,14 +45,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/team"
-                  className="text-sm text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors hover-lift"
-                >
-                  Our Team
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/contact"
                   className="text-sm text-muted-foreground hover:text-violet-600 dark:hover:text-violet-400 transition-colors hover-lift"
                 >
@@ -66,10 +58,34 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link
-                  href="#"
+                  href="/ai-services"
                   className="text-sm text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors hover-lift"
                 >
-                  Cookie Policy
+                  AI Services
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/pricing"
+                  className="text-sm text-muted-foreground hover:text-violet-600 dark:hover:text-violet-400 transition-colors hover-lift"
+                >
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-sm text-muted-foreground hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors hover-lift"
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/projects"
+                  className="text-sm text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors hover-lift"
+                >
+                  Projects
                 </Link>
               </li>
             </ul>

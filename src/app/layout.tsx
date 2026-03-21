@@ -4,6 +4,11 @@ import "./globals.css"
 
 import Footer from "../app/components/footer"
 import Header from "./components/header"
+import { Providers } from "./components/providers"
+import WhatsAppButton from "./components/whatsapp-button"
+import PageLoader from "./components/page-loader"
+import ScrollToTop from "./components/scroll-to-top"
+import ChatBot from "./components/chat-bot"
 
 // Define fonts
 const montserrat = Montserrat({
@@ -54,13 +59,19 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${montserrat.variable} ${poppins.variable} font-sans`}>
-        <div className="flex min-h-screen flex-col animated-bg">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+        <Providers>
+          <div className="flex min-h-screen flex-col animated-bg">
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <WhatsAppButton />
+            <ScrollToTop />
+            <PageLoader />
+            <ChatBot />
+          </div>
+        </Providers>
       </body>
     </html>
   )

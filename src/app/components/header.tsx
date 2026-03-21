@@ -3,11 +3,30 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Sun, Moon } from "lucide-react"
+import { useTheme } from "next-themes"
+import { usePathname } from "next/navigation"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/ai-services", label: "AI Services" },
+    { href: "/projects", label: "Projects" },
+    { href: "/pricing", label: "Pricing" },
+    { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
+  ]
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,78 +64,75 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-4 lg:gap-8">
-          <Link href="/" className="text-sm lg:text-base font-medium relative nav-link">
-            Home
-          </Link>
-          <Link href="/about" className="text-sm lg:text-base font-medium relative nav-link">
-            About
-          </Link>
-          <Link href="/team" className="text-sm lg:text-base font-medium relative nav-link">
-            Team
-          </Link>
-          <Link href="/projects" className="text-sm lg:text-base font-medium relative nav-link">
-            Projects
-          </Link>
-          <Link href="/contact" className="text-sm lg:text-base font-medium relative nav-link">
-            Contact
-          </Link>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              className={`text-sm lg:text-base font-medium relative nav-link transition-colors ${
+                pathname === href
+                  ? "text-violet-600 dark:text-violet-400"
+                  : ""
+              }`}
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="hidden md:flex">
+        <div className="hidden md:flex items-center gap-3">
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="flex items-center justify-center w-9 h-9 rounded-full glass border border-white/20 transition-all hover:scale-110"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+          )}
           <Link href="/contact" className="btn-primary text-sm lg:text-base py-2 px-4 lg:px-6">
             Get Started
           </Link>
         </div>
 
-        {/* Mobile Menu Button */}
-        <button
-          className="md:hidden flex items-center justify-center rounded-md p-2 text-foreground"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-        >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile: theme toggle + menu button */}
+        <div className="md:hidden flex items-center gap-2">
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className="flex items-center justify-center w-9 h-9 rounded-full glass border border-white/20"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+          )}
+          <button
+            className="flex items-center justify-center rounded-md p-2 text-foreground"
+            onClick={toggleMenu}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden glass">
           <div className="container flex flex-col space-y-4 py-6">
-            <Link
-              href="/"
-              className="text-base font-medium hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-base font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link
-              href="/team"
-              className="text-base font-medium hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Team
-            </Link>
-            <Link
-              href="/projects"
-              className="text-base font-medium hover:text-violet-600 dark:hover:text-violet-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/contact"
-              className="text-base font-medium hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className={`text-base font-medium transition-colors ${
+                  pathname === href
+                    ? "text-violet-600 dark:text-violet-400 font-semibold"
+                    : "hover:text-violet-600 dark:hover:text-violet-400"
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
             <div className="pt-2">
               <Link
                 href="/contact"

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight } from "lucide-react"
+import { ExternalLink } from "lucide-react"
 
 export default function ProjectsPage() {
   const projects = [
@@ -113,9 +113,16 @@ export default function ProjectsPage() {
                       </span>
                     ))}
                   </div>
-                  <Link href={project.link} className="inline-flex items-center text-sm text-primary hover:underline">
-                    View details <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-semibold text-violet-600 dark:text-violet-400 hover:underline"
+                    >
+                      Live Demo <ExternalLink className="ml-1 h-4 w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             ))}

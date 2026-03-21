@@ -1,14 +1,26 @@
 "use client"
 
 import type React from "react"
-
 import { useState } from "react"
+import emailjs from "@emailjs/browser"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react"
+
+// -------------------------------------------------------
+// EmailJS Setup:
+// 1. Go to https://www.emailjs.com and create a free account
+// 2. Add an Email Service (Gmail recommended)
+// 3. Create an Email Template with these variables:
+//    {{from_name}}, {{from_email}}, {{phone}}, {{service}}, {{subject}}, {{message}}
+// 4. Replace the values below with your actual IDs:
+// -------------------------------------------------------
+const EMAILJS_SERVICE_ID = "service_np39pm8"
+const EMAILJS_TEMPLATE_ID = "template_glr2aws"
+const EMAILJS_PUBLIC_KEY = "95gs-osIS2Sl_hMdi"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -22,6 +34,7 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState("")
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -32,23 +45,32 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, service: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError("")
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        EMAILJS_PUBLIC_KEY
+      )
       setIsSubmitted(true)
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        service: "",
-        message: "",
-      })
-    }, 1500)
+      setFormData({ name: "", email: "", phone: "", subject: "", service: "", message: "" })
+    } catch {
+      setError("Something went wrong. Please try again or contact us via WhatsApp.")
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -166,6 +188,9 @@ export default function ContactPage() {
                       onChange={handleChange}
                     />
                   </div>
+                  {error && (
+                    <p className="text-sm text-red-500 dark:text-red-400">{error}</p>
+                  )}
                   <Button type="submit" className="w-full" disabled={isSubmitting}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
@@ -181,7 +206,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-medium">Address</h4>
                       <p className="text-sm text-muted-foreground">
-                        b-52 Gulshan iqbal , Karachi
+                       Gulshan iqbal , Karachi
                         <br />
                         Block -  75300
                         <br />
@@ -194,6 +219,20 @@ export default function ContactPage() {
                     <div>
                       <h4 className="font-medium">Phone</h4>
                       <p className="text-sm text-muted-foreground">+92 (345) 261-5590</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <MessageCircle className="h-5 w-5 text-green-500 mt-0.5" />
+                    <div>
+                      <h4 className="font-medium">WhatsApp</h4>
+                      <a
+                        href="https://wa.me/923452615590"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-green-600 dark:text-green-400 hover:underline font-medium"
+                      >
+                        Chat on WhatsApp
+                      </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
@@ -217,22 +256,21 @@ export default function ContactPage() {
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg glass-card p-6">
-                <h3 className="text-xl font-bold mb-4">Our Locations</h3>
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-medium">Headquarters</h4>
-                    <p className="text-sm text-muted-foreground">Gulshan Karachi</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium">Development Center</h4>
-                    <p className="text-sm text-muted-foreground">Pakistan</p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium">International Office</h4>
-                    <p className="text-sm text-muted-foreground">Dubai</p>
-                  </div>
+              <div className="rounded-lg glass-card overflow-hidden">
+                <div className="p-4 border-b border-white/10">
+                  <h3 className="text-lg font-bold">Our Location</h3>
+                  <p className="text-sm text-muted-foreground">Gulshan-e-Iqbal, Karachi, Pakistan</p>
                 </div>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57897.90425582662!2d67.08822!3d24.9211667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e8e04414813%3A0x9c5c68dff5a08a3c!2sGulshan-e-Iqbal%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Technova Office Location"
+                />
               </div>
             </div>
           </div>

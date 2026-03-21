@@ -7,16 +7,28 @@ export default function AboutPage() {
     <div className="flex flex-col">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-purple-100 via-teal-50 to-green-100 dark:from-purple-900/30 dark:via-teal-900/30 dark:to-green-900/30 section-padding">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg?height=500&width=1000')] opacity-5 bg-repeat"></div>
-        <div className="container px-4 md:px-6 relative">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+        <div className="container px-4 md:px-6">
+          <div className="flex flex-col items-center justify-center space-y-6 text-center">
+            <div className="relative w-36 h-36 mx-auto">
+              <div className="absolute -inset-1 bg-gradient-to-r from-violet-500 via-cyan-500 to-emerald-500 rounded-full"></div>
+              <div className="relative w-36 h-36 rounded-full overflow-hidden border-4 border-white dark:border-gray-900">
+                <Image
+                  src="/moh.png"
+                  alt="Mohsin Raza - Founder Technova"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "center -20px" }}
+                />
+              </div>
+            </div>
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
                 About <span className="gradient-text">Technova</span>
               </h1>
+              <p className="text-lg font-semibold gradient-text">Mohsin Raza — Founder & CEO</p>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                We are a team of passionate developers, designers, and strategists dedicated to creating exceptional
-                software solutions.
+                Passionate about building innovative software and AI solutions
+                that help businesses grow in the digital era.
               </p>
             </div>
           </div>
@@ -31,8 +43,8 @@ export default function AboutPage() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-teal-500/10 rounded-lg blur-xl"></div>
                 <Image
-                  src="/about.jpeg?height=400&width=600"
-                  alt="Our Story"
+                  src="/about.jpeg"
+                  alt="About Technova"
                   width={500}
                   height={400}
                   className="relative rounded-lg object-cover shadow-xl"
@@ -48,19 +60,21 @@ export default function AboutPage() {
                   From <span className="gradient-text">Vision</span> to <span className="gradient-text">Reality</span>
                 </h2>
                 <p className="text-muted-foreground">
-                  Founded in 2022 Technova Software House began with a simple mission: to help businesses leverage
-                  technology to achieve their goals. What started as a small team of three developers has grown into a
-                  full-service software development company with a global client base.
+                  Founded in 2022, Technova Software House was born from my passion for technology and a clear vision:
+                  to help businesses harness the power of software and AI to achieve real growth. With over 3 years of
+                  hands-on experience in software development, I built Technova from the ground up — taking full
+                  ownership of every project from concept to delivery.
                 </p>
                 <p className="text-muted-foreground">
-                  Over the years we have helped startups launch their first products assisted mid-sized companies in
-                  digital transformation, and partnered with enterprises to modernize their systems. Our journey has
-                  been defined by continuous learning innovation and a commitment to excellence.
+                  Over the years I have helped startups launch their first products, assisted businesses in digital
+                  transformation, and delivered custom AI solutions including intelligent chatbots, agentic AI systems,
+                  and AI-powered automation. My journey has been defined by continuous learning, innovation, and an
+                  uncompromising commitment to quality.
                 </p>
                 <p className="text-muted-foreground">
                   Today, Technova stands as a trusted partner for businesses seeking reliable, scalable, and innovative
-                  software solutions. Our team combines technical expertise with industry knowledge to deliver results
-                  that exceed expectations.
+                  software and AI solutions. I combine deep technical expertise with real industry knowledge to deliver
+                  results that exceed expectations — every single time.
                 </p>
               </div>
             </div>
@@ -77,7 +91,7 @@ export default function AboutPage() {
                 Our <span className="gradient-text">Mission</span> & <span className="gradient-text">Vision</span>
               </h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                Guiding principles that drive our work and shape our future
+                Guiding principles that drive my work and shape the future of Technova
               </p>
             </div>
           </div>
@@ -89,9 +103,9 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold">Our Mission</h3>
                 <p className="text-muted-foreground">
-                  To empower businesses with innovative software solutions that drive growth, efficiency, and
-                  competitive advantage. We are committed to delivering high-quality, user-centered products that solve
-                  real-world problems and create lasting value for our clients.
+                  To empower businesses with innovative software and AI solutions that drive growth, efficiency, and
+                  competitive advantage. I am committed to delivering high-quality, user-centered products that solve
+                  real-world problems and create lasting value for every client.
                 </p>
               </div>
             </div>
@@ -102,9 +116,10 @@ export default function AboutPage() {
                 </div>
                 <h3 className="text-xl font-bold">Our Vision</h3>
                 <p className="text-muted-foreground">
-                  To be a global leader in software development, recognized for our technical excellence, innovative
-                  solutions, and exceptional client service. We aspire to create a positive impact on businesses and
-                  communities through technology, while fostering a culture of continuous learning and growth.
+                  To be a globally recognized name in software and Agentic AI development — known for technical
+                  excellence, innovative solutions, and exceptional client service. I aspire to create a positive impact
+                  on businesses and communities through technology, while continuously pushing the boundaries of what AI
+                  and software can achieve.
                 </p>
               </div>
             </div>
@@ -121,7 +136,7 @@ export default function AboutPage() {
                 Our Core <span className="gradient-text">Values</span>
               </h2>
               <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                The principles that guide our decisions and define our culture
+                The principles that guide every decision and define how I work with clients
               </p>
             </div>
           </div>
@@ -209,9 +224,8 @@ export default function AboutPage() {
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Join Our Journey</h2>
               <p className="mx-auto max-w-[700px] md:text-xl/relaxed">
-                Partner with Technova and experience the difference of working with a team that
-                is passionate about your
-                success.
+                Partner with Technova and experience the difference of working with someone who is truly passionate
+                about your success and committed to delivering results.
               </p>
             </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -222,10 +236,10 @@ export default function AboutPage() {
                 Contact Us
               </Link>
               <Link
-                href="/team"
+                href="/projects"
                 className="inline-flex h-10 items-center justify-center rounded-md btn-outline px-8 text-sm font-medium shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1"
               >
-                Meet Our Team
+                View Our Work
               </Link>
             </div>
           </div>
