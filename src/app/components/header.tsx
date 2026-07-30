@@ -331,7 +331,7 @@ export default function Header() {
               className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
                 isActive(href)
                   ? "text-[#C9A84C] font-semibold"
-                  : "text-[#94A3B8] hover:text-white hover:bg-white/5"
+                  : "text-[#94A3B8] hover:text-[#E8EDF5] hover:bg-white/5"
               }`}
               style={isActive(href) ? { background: "rgba(201,168,76,0.08)", borderLeft: "3px solid #C9A84C" } : {}}
               aria-current={isActive(href) ? "page" : undefined}
@@ -346,7 +346,7 @@ export default function Header() {
             className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
               isActive("/dispatchdos")
                 ? "text-[#C9A84C] font-semibold"
-                : "text-[#94A3B8] hover:text-white hover:bg-white/5"
+                : "text-[#94A3B8] hover:text-[#E8EDF5] hover:bg-white/5"
             }`}
             style={isActive("/dispatchdos") ? { background: "rgba(201,168,76,0.08)", borderLeft: "3px solid #C9A84C" } : {}}
           >
@@ -365,7 +365,7 @@ export default function Header() {
               <Link
                 key={f.title}
                 href="/dispatchdos"
-                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-white py-1 transition-colors"
+                className="flex items-center gap-3 text-sm text-muted-foreground hover:text-[#E8EDF5] py-1 transition-colors"
               >
                 <span style={{ color: "#C9A84C" }}>{f.icon}</span>
                 <div>

@@ -17,7 +17,7 @@ export default function PageLoader() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-[100]">
-      <div className="h-1 bg-gradient-to-r from-violet-600 via-cyan-500 to-emerald-500 animate-loading-bar" />
+      <div className="h-1 animate-loading-bar" style={{ background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />
     </div>
   )
 }
