@@ -41,6 +41,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Mohsin Raza", url: "https://nyrvex.com/about" }],
   creator: "Mohsin Raza",
   publisher: "Nyrvex",
+  icons: {
+    icon: [
+      { url: "/favicon.png", type: "image/png", sizes: "48x48" },
+      { url: "/favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/favicon.png", type: "image/png", sizes: "16x16" },
+    ],
+    apple: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
   robots: {
     index: true,
     follow: true,
