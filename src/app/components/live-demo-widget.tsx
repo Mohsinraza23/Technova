@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Search, ShieldCheck, AlertTriangle, CheckCircle, XCircle, Loader2 } from "lucide-react"
+import { Search, AlertTriangle, CheckCircle, XCircle, Loader2 } from "lucide-react"
 
 const DEMO_CARRIERS: Record<string, {
   name: string; auth: string; ins: string; safety: string

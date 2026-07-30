@@ -12,7 +12,7 @@ const LiveDemoWidget   = dynamic(() => import("../components/live-demo-widget"),
 const WaitlistCounter  = dynamic(() => import("../components/waitlist-counter"),   { ssr: false })
 import {
   Upload, FileSpreadsheet, ShieldCheck, AlertTriangle,
-  CheckCircle, ArrowRight, Clock, Users, Globe, BarChart3, ChevronRight, X, Zap, Download
+  CheckCircle, ArrowRight, Clock, Users, Globe, BarChart3, ChevronRight, X, Download
 } from "lucide-react"
 
 export const metadata: Metadata = {
