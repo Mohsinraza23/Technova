@@ -27,7 +27,10 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://nyrvex.com"),
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://nyrvex.com")
+  ),
   title: {
     default: "Nyrvex — Intelligent AI Solutions",
     template: "%s | Nyrvex",
