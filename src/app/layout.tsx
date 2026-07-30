@@ -71,10 +71,6 @@ export const metadata: Metadata = {
     images: ["/logo.jpg"],
     creator: "@nyrvex",
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-  },
   alternates: { canonical: "https://nyrvex.com" },
 }
 
