@@ -36,7 +36,7 @@ const personSchema = {
   jobTitle: "Founder & CEO",
   worksFor: { "@type": "Organization", name: "Nyrvex", url: "https://nyrvex.com" },
   url: "https://nyrvex.com/about",
-  sameAs: ["https://www.linkedin.com/in/mohsinraza-dev/"],
+  sameAs: ["https://www.linkedin.com/in/nyrvex-ai-19b456425/"],
 }
 
 export default function AboutPage() {
@@ -77,7 +77,7 @@ export default function AboutPage() {
               {/* Founder social links */}
               <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                 <a
-                  href="https://www.linkedin.com/in/mohsinraza-dev/"
+                  href="https://www.linkedin.com/in/nyrvex-ai-19b456425/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold transition-all hover:-translate-y-0.5 hover:shadow-lg"

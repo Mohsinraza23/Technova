@@ -50,7 +50,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
-                href="https://www.linkedin.com/in/mohsinraza-dev/"
+                href="https://www.linkedin.com/in/nyrvex-ai-19b456425/"
                 aria-label="LinkedIn"
                 className="w-9 h-9 rounded-lg flex items-center justify-center transition-all hover:-translate-y-0.5"
                 style={{ background: "rgba(201,168,76,0.08)", border: "1px solid rgba(201,168,76,0.15)", color: "#8898AA" }}

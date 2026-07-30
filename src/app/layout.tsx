@@ -88,7 +88,7 @@ export default function RootLayout({
       email: "hello@nyrvex.com",
       contactType: "customer support",
     },
-    sameAs: ["https://www.linkedin.com/in/mohsinraza-dev/"],
+    sameAs: ["https://www.linkedin.com/in/nyrvex-ai-19b456425/"],
   }
 
   return (
