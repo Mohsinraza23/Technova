@@ -2,15 +2,18 @@ import type { Metadata } from "next"
 import { Montserrat, Poppins } from "next/font/google"
 import "./globals.css"
 
+import dynamic from "next/dynamic"
 import Footer from "../app/components/footer"
 import Header from "./components/header"
 import { Providers } from "./components/providers"
-import WhatsAppButton from "./components/whatsapp-button"
-import PageLoader from "./components/page-loader"
-import ScrollToTop from "./components/scroll-to-top"
-import ChatBot from "./components/chat-bot"
 
-// Define fonts
+// Dynamically import client-only components — keeps initial JS bundle small
+const WhatsAppButton = dynamic(() => import("./components/whatsapp-button"), { ssr: false })
+const PageLoader    = dynamic(() => import("./components/page-loader"),    { ssr: false })
+const ScrollToTop   = dynamic(() => import("./components/scroll-to-top"),  { ssr: false })
+const ChatBot       = dynamic(() => import("./components/chat-bot"),       { ssr: false })
+const CustomCursor  = dynamic(() => import("./components/custom-cursor"),  { ssr: false })
+
 const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
@@ -23,34 +26,47 @@ const poppins = Poppins({
   variable: "--font-poppins",
 })
 
-// ✅ Move metadata to the top-level scope
 export const metadata: Metadata = {
-  title: "Technova Software House",
-  description: "Professional software development services for businesses of all sizes",
+  metadataBase: new URL("https://nyrvex.com"),
+  title: {
+    default: "Nyrvex — Intelligent AI Solutions",
+    template: "%s | Nyrvex",
+  },
+  description: "Nyrvex builds intelligent AI solutions — custom software, automation, and AI products that solve real industry problems and drive measurable results.",
+  keywords: [
+    "AI solutions", "custom software", "AI automation", "freight broker tools",
+    "FMCSA carrier verification", "DispatchDOS", "AI products", "Nyrvex",
+    "AI chatbot", "AI agents", "web development", "Pakistan AI company",
+  ],
+  authors: [{ name: "Mohsin Raza", url: "https://nyrvex.com/about" }],
+  creator: "Mohsin Raza",
+  publisher: "Nyrvex",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
   openGraph: {
-    title: "Technova Software House",
-    description: "Professional software development services for businesses of all sizes",
-    url: "https://technova-zeta.vercel.app/", // Apni website ka link
-    siteName: "Technova Software House",
-    images: [
-      {
-        url: "/logo.jpeg", // ✅ Public folder wali image ka path
-        width: 1200,
-        height: 630,
-        alt: "Technova Software House Logo",
-      },
-    ],
+    title: "Nyrvex — Intelligent AI Solutions",
+    description: "Nyrvex builds intelligent AI solutions — custom software, automation, and AI products that solve real industry problems.",
+    siteName: "Nyrvex",
+    url: "https://nyrvex.com",
+    images: [{ url: "/logo.jpg", width: 1200, height: 630, alt: "Nyrvex — Intelligent AI Solutions" }],
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technova Software House",
-    description: "Professional software development services for businesses of all sizes",
-    images: ["/logo.jpeg"], // ✅ Yahan bhi local image ka path
+    title: "Nyrvex — Intelligent AI Solutions",
+    description: "Nyrvex builds intelligent AI solutions — custom software, automation, and AI products for businesses.",
+    images: ["/logo.jpg"],
+    creator: "@nyrvex",
   },
   icons: {
-    icon: "/favicon.ico", // ✅ Agar favicon bhi hai
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
   },
+  alternates: { canonical: "https://nyrvex.com" },
 }
 
 export default function RootLayout({
@@ -58,13 +74,37 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Nyrvex",
+    url: "https://nyrvex.com",
+    logo: "https://nyrvex.com/logo.jpg",
+    description: "Nyrvex builds intelligent AI solutions — custom software, automation, and AI products for businesses.",
+    founder: { "@type": "Person", name: "Mohsin Raza" },
+    foundingDate: "2024",
+    contactPoint: {
+      "@type": "ContactPoint",
+      email: "hello@nyrvex.com",
+      contactType: "customer support",
+    },
+    sameAs: ["https://www.linkedin.com/in/mohsinraza-dev/"],
+  }
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+        />
+      </head>
       <body className={`${montserrat.variable} ${poppins.variable} font-sans`}>
         <Providers>
           <div className="flex min-h-screen flex-col animated-bg">
+            <CustomCursor />
             <Header />
-            <main className="flex-1">{children}</main>
+            <main id="main-content" className="flex-1">{children}</main>
             <Footer />
             <WhatsAppButton />
             <ScrollToTop />

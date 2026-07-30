@@ -9,29 +9,16 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react"
+import TrustBadges from "../components/trust-badges"
 
-// -------------------------------------------------------
-// EmailJS Setup:
-// 1. Go to https://www.emailjs.com and create a free account
-// 2. Add an Email Service (Gmail recommended)
-// 3. Create an Email Template with these variables:
-//    {{from_name}}, {{from_email}}, {{phone}}, {{service}}, {{subject}}, {{message}}
-// 4. Replace the values below with your actual IDs:
-// -------------------------------------------------------
 const EMAILJS_SERVICE_ID = "service_np39pm8"
 const EMAILJS_TEMPLATE_ID = "template_glr2aws"
 const EMAILJS_PUBLIC_KEY = "95gs-osIS2Sl_hMdi"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    service: "",
-    message: "",
+    name: "", email: "", phone: "", subject: "", service: "", message: "",
   })
-
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState("")
@@ -49,21 +36,15 @@ export default function ContactPage() {
     e.preventDefault()
     setIsSubmitting(true)
     setError("")
-
     try {
-      await emailjs.send(
-        EMAILJS_SERVICE_ID,
-        EMAILJS_TEMPLATE_ID,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        EMAILJS_PUBLIC_KEY
-      )
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        service: formData.service,
+        subject: formData.subject,
+        message: formData.message,
+      }, EMAILJS_PUBLIC_KEY)
       setIsSubmitted(true)
       setFormData({ name: "", email: "", phone: "", subject: "", service: "", message: "" })
     } catch {
@@ -75,91 +56,71 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
+
+      {/* Hero */}
       <section className="mirror-gradient section-padding">
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Contact <span className="gradient-text">Us</span>
+              <div className="badge-gold mx-auto w-fit mb-4">Get In Touch</div>
+              <h1 className="heading-xl">
+                Let&apos;s Talk About <span className="gradient-text">Your Needs</span>
               </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed">
-                Get in touch with our team to discuss your project or inquire about our services
+              <p className="mx-auto max-w-[620px] body-lg text-muted-foreground">
+                Interested in DispatchDOS early access, a custom AI solution, or want to explore a partnership?
+                We respond within 24 hours.
               </p>
+              <TrustBadges className="justify-center mt-2" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Form and Info */}
-      <section className="bg-white dark:bg-gray-950 section-padding">
+      {/* Form + Info */}
+      <section className="section-padding">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter">Get in Touch</h2>
+                <h2 className="heading-md">Send a Message</h2>
                 <p className="text-muted-foreground">
-                  Fill out the form below and our team will get back to you as soon as possible.
+                  Fill out the form and we will get back to you as soon as possible.
                 </p>
               </div>
               {isSubmitted ? (
-                <div className="rounded-lg glass-card p-6 bg-green-50/50 dark:bg-green-900/20">
-                  <h3 className="text-xl font-bold text-green-600 dark:text-green-400">Thank You!</h3>
-                  <p className="mt-2">Your message has been received. We will get back to you shortly.</p>
-                  <Button className="mt-4" onClick={() => setIsSubmitted(false)}>
-                    Send Another Message
-                  </Button>
+                <div className="rounded-lg glass-card p-6" style={{ background: "rgba(34,197,94,0.05)", borderColor: "rgba(34,197,94,0.2)" }}>
+                  <h3 className="text-xl font-bold text-green-400">Thank You!</h3>
+                  <p className="mt-2 text-muted-foreground">Your message has been received. We will get back to you shortly.</p>
+                  <Button className="mt-4" onClick={() => setIsSubmitted(false)}>Send Another Message</Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4 glass-card p-6 rounded-lg">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="name">Full Name</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        placeholder="Technova"
-                        required
-                        value={formData.name}
-                        onChange={handleChange}
-                      />
+                      <Input id="name" name="name" placeholder="Your name" required value={formData.name} onChange={handleChange} />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="technova@example.com"
-                        required
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
+                      <Input id="email" name="email" type="email" placeholder="you@company.com" required value={formData.email} onChange={handleChange} />
                     </div>
                   </div>
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        placeholder="+92 (345) 261-5590"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
+                      <Input id="phone" name="phone" placeholder="+1 (555) 000-0000" value={formData.phone} onChange={handleChange} />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="service">Service</Label>
+                      <Label htmlFor="service">I&apos;m Interested In</Label>
                       <Select value={formData.service} onValueChange={handleSelectChange}>
                         <SelectTrigger id="service">
-                          <SelectValue placeholder="Select a service" />
+                          <SelectValue placeholder="Select one..." />
                         </SelectTrigger>
                         <SelectContent>
+                          <SelectItem value="dispatchdos">DispatchDOS Early Access</SelectItem>
+                          <SelectItem value="custom-ai">Custom AI Solution</SelectItem>
+                          <SelectItem value="automation">AI Automation</SelectItem>
                           <SelectItem value="web-development">Web Development</SelectItem>
-                          <SelectItem value="mobile-apps">Mobile Apps</SelectItem>
-                          <SelectItem value="ui-ux-design">UI/UX Design</SelectItem>
-                          <SelectItem value="cloud-solutions">Cloud Solutions</SelectItem>
-                          <SelectItem value="consulting">Consulting</SelectItem>
                           <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                       </Select>
@@ -167,162 +128,118 @@ export default function ContactPage() {
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="subject">Subject</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      placeholder="Project Inquiry"
-                      required
-                      value={formData.subject}
-                      onChange={handleChange}
-                    />
+                    <Input id="subject" name="subject" placeholder="Project Inquiry" required value={formData.subject} onChange={handleChange} />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell us about your project or inquiry..."
-                      required
-                      className="min-h-[120px]"
-                      value={formData.message}
-                      onChange={handleChange}
-                    />
+                    <Textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required className="min-h-[120px]" value={formData.message} onChange={handleChange} />
                   </div>
-                  {error && (
-                    <p className="text-sm text-red-500 dark:text-red-400">{error}</p>
-                  )}
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
+                  {error && <p className="text-sm text-red-400">{error}</p>}
+                  <Button type="submit" className="w-full" disabled={isSubmitting}
+                    style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", color: "#0A0F1E", fontWeight: 700 }}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
+                  <div className="flex items-center gap-2 pt-1">
+                    <svg className="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: "#C9A84C" }}>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    </svg>
+                    <p className="text-xs" style={{ color: "#8898AA" }}>
+                      Your information is SSL-encrypted and never shared with third parties.
+                    </p>
+                  </div>
                 </form>
               )}
             </div>
+
             <div className="flex flex-col space-y-6">
               <div className="rounded-lg glass-card p-6">
-                <h3 className="text-xl font-bold mb-4">Contact Information</h3>
+                <h3 className="heading-sm mb-4">Contact Information</h3>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">
-                    <MapPin className="h-5 w-5 text-primary mt-0.5" />
+                    <Mail className="h-5 w-5 mt-0.5" style={{ color: "#C9A84C" }} />
                     <div>
-                      <h4 className="font-medium">Address</h4>
-                      <p className="text-sm text-muted-foreground">
-                       Gulshan iqbal , Karachi
-                        <br />
-                        Block -  75300
-                        <br />
-                        Pakistan
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <Phone className="h-5 w-5 text-primary mt-0.5" />
-                    <div>
-                      <h4 className="font-medium">Phone</h4>
-                      <p className="text-sm text-muted-foreground">+92 (345) 261-5590</p>
+                      <h4 className="font-medium">Email</h4>
+                      <p className="text-sm text-muted-foreground">hello@nyrvex.com</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
                     <MessageCircle className="h-5 w-5 text-green-500 mt-0.5" />
                     <div>
                       <h4 className="font-medium">WhatsApp</h4>
-                      <a
-                        href="https://wa.me/923452615590"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-green-600 dark:text-green-400 hover:underline font-medium"
-                      >
+                      <a href="https://wa.me/923452615590" target="_blank" rel="noopener noreferrer"
+                        className="text-sm text-green-400 hover:underline font-medium">
                         Chat on WhatsApp
                       </a>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Mail className="h-5 w-5 text-primary mt-0.5" />
+                    <Phone className="h-5 w-5 mt-0.5" style={{ color: "#C9A84C" }} />
                     <div>
-
-                      <h4 className="font-medium">Email</h4>
-                      <p className="text-sm text-muted-foreground">novatech058@gmail.com</p>
+                      <h4 className="font-medium">Phone</h4>
+                      <p className="text-sm text-muted-foreground">+92 (345) 261-5590</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4">
-                    <Clock className="h-5 w-5 text-primary mt-0.5" />
+                    <Clock className="h-5 w-5 mt-0.5" style={{ color: "#C9A84C" }} />
                     <div>
-                      <h4 className="font-medium">Business Hours</h4>
-                      <p className="text-sm text-muted-foreground">
-                        Monday - Saturday : 9:00 AM - 6:00 PM
-                        <br />
-                        Sunday: Closed
-                      </p>
+                      <h4 className="font-medium">Response Time</h4>
+                      <p className="text-sm text-muted-foreground">Within 24 hours</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <MapPin className="h-5 w-5 mt-0.5" style={{ color: "#C9A84C" }} />
+                    <div>
+                      <h4 className="font-medium">Location</h4>
+                      <p className="text-sm text-muted-foreground">Karachi, Pakistan</p>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="rounded-lg glass-card overflow-hidden">
-                <div className="p-4 border-b border-white/10">
-                  <h3 className="text-lg font-bold">Our Location</h3>
-                  <p className="text-sm text-muted-foreground">Gulshan-e-Iqbal, Karachi, Pakistan</p>
+
+              <div className="rounded-lg glass-card p-6">
+                <h3 className="text-sm font-bold mb-4 uppercase tracking-wider text-muted-foreground">Quick Interests</h3>
+                <div className="space-y-2">
+                  {[
+                    "DispatchDOS Early Access",
+                    "Custom AI Product Development",
+                    "Business Process Automation",
+                    "AI Agent Development",
+                    "Web / Mobile Development",
+                  ].map((item) => (
+                    <div key={item} className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: "#C9A84C" }} />
+                      {item}
+                    </div>
+                  ))}
                 </div>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57897.90425582662!2d67.08822!3d24.9211667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e8e04414813%3A0x9c5c68dff5a08a3c!2sGulshan-e-Iqbal%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
-                  width="100%"
-                  height="220"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Technova Office Location"
-                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="bg-white dark:bg-gray-950 section-padding">
+      {/* FAQ */}
+      <section className="section-padding" style={{ background: "rgba(201,168,76,0.02)" }}>
         <div className="container px-4 md:px-6">
           <div className="flex flex-col items-center justify-center space-y-4 text-center mb-8">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter">Frequently Asked Questions</h2>
-              <p className="mx-auto max-w-[700px] text-muted-foreground">
-                Find answers to common questions about our services
-              </p>
-            </div>
+            <div className="badge-gold mb-2">FAQ</div>
+            <h2 className="heading-lg">Frequently Asked <span className="gradient-text">Questions</span></h2>
           </div>
           <div className="mx-auto grid max-w-5xl gap-6 lg:grid-cols-2">
-            <div className="rounded-lg glass-card p-6">
-              <h3 className="text-lg font-bold">What services does Technova offer?</h3>
-              <p className="mt-2 text-muted-foreground">
-                Technova offers a wide range of services including web development, mobile app development, UI/UX
-                design, cloud solutions, database management, and quality assurance testing.
-              </p>
-            </div>
-            <div className="rounded-lg glass-card p-6">
-              <h3 className="text-lg font-bold">How long does a typical project take?</h3>
-              <p className="mt-2 text-muted-foreground">
-                Project timelines vary depending on complexity and scope. A simple website might take 4-6 weeks while a
-                complex enterprise application could take several months. We will provide a detailed timeline during our
-                initial consultation.
-              </p>
-            </div>
-            <div className="rounded-lg glass-card p-6">
-              <h3 className="text-lg font-bold">What is your pricing model?</h3>
-              <p className="mt-2 text-muted-foreground">
-                We offer flexible pricing models including fixed-price projects time and materials and retainer
-                arrangements. The best model depends on your projects requirements and we will discuss options during our
-                consultation.
-              </p>
-            </div>
-            <div className="rounded-lg glass-card p-6">
-              <h3 className="text-lg font-bold">Do you provide ongoing support after project completion?</h3>
-              <p className="mt-2 text-muted-foreground">
-                Yes, we offer various support and maintenance packages to ensure your application continues to run
-                smoothly after launch. We can also implement updates and new features as your business evolves.
-              </p>
-            </div>
+            {[
+              { q: "What is DispatchDOS?", a: "DispatchDOS is a bulk FMCSA carrier verification tool. Freight brokers upload a list of carriers and get back a full Excel report with 30+ data points and A–F risk scores in minutes." },
+              { q: "How many carriers can I verify at once?", a: "DispatchDOS supports 1,000+ carriers per batch. You upload an Excel or CSV file and receive a complete report for all carriers within minutes." },
+              { q: "Do you build custom AI solutions?", a: "Yes. Beyond DispatchDOS, we build custom AI chatbots, AI agents, automation systems, and full-stack software tailored to your specific business needs." },
+              { q: "Are Canada carriers supported?", a: "Yes, DispatchDOS supports both US and Canada carriers, making it ideal for cross-border freight brokers and logistics companies." },
+            ].map((faq) => (
+              <div key={faq.q} className="rounded-lg glass-card p-6">
+                <h3 className="text-lg font-bold mb-2">{faq.q}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{faq.a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
     </div>
   )
 }
-
