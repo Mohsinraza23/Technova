@@ -4,6 +4,7 @@ import Image from "next/image"
 import { CheckCircle, Zap, Heart, Award, Target, Rocket, Users } from "lucide-react"
 import ScrollReveal from "../components/scroll-reveal"
 import TrustBadges from "../components/trust-badges"
+import AnimatedCount from "../components/animated-count"
 
 export const metadata: Metadata = {
   title: "About Nyrvex — Founder Mohsin Raza & Our Mission",
@@ -130,14 +131,19 @@ export default function AboutPage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "18,000+", label: "Target Market" },
-                { value: "30+", label: "Data Fields" },
-                { value: "1,000+", label: "Carriers/Batch" },
-                { value: "AI-First", label: "Philosophy" },
+                { num: 18000, suffix: "+", label: "Target Market",   delay: 0 },
+                { num: 30,    suffix: "+", label: "Data Fields",      delay: 150 },
+                { num: 1000,  suffix: "+", label: "Carriers/Batch",   delay: 300 },
+                { num: null,  suffix: "",  label: "AI-First",         delay: 450 },
               ].map((s, i) => (
                 <ScrollReveal key={s.label} delay={i * 0.1} direction="up">
                 <div className="fancy-card p-6 text-center rounded-xl h-full">
-                  <div className="heading-md gradient-text mb-2">{s.value}</div>
+                  <div className="heading-md gradient-text mb-2">
+                    {s.num !== null
+                      ? <AnimatedCount value={s.num} suffix={s.suffix} delay={s.delay} />
+                      : "AI-First"
+                    }
+                  </div>
                   <p className="text-sm text-muted-foreground">{s.label}</p>
                 </div>
                 </ScrollReveal>
