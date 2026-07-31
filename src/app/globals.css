@@ -655,6 +655,11 @@
   }
 }
 
+@keyframes carousel-progress {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
 /* Social Proof Bar */
 .proof-bar {
   background: rgba(201,168,76,0.06);

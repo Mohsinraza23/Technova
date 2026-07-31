@@ -57,6 +57,7 @@ import FadeIn from "./components/fade-in"
 import FaqAccordion from "./components/faq-accordion"
 import ScrollReveal from "./components/scroll-reveal"
 import TiltCard from "./components/tilt-card"
+import TestimonialsCarousel from "./components/testimonials-carousel"
 
 // Heavy canvas lib — browser-only, skip SSR
 const ParticlesBg = dynamic(() => import("./components/particles-bg"), { ssr: false })
@@ -476,44 +477,7 @@ export default function Home() {
               </Link>
             </div>
           </FadeIn>
-          <div className="grid gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { initials: "AK", name: "Ahmed Khan", role: "CEO, ShopEase Pakistan", text: "Nyrvex built our e-commerce platform from scratch. The quality and attention to detail was outstanding. Our sales increased by 40% within the first month of launch." },
-              { initials: "SR", name: "Sara Rehman", role: "Founder, TechRetail Dubai", text: "The AI chatbot Nyrvex built for our customer support reduced response time by 80%. It handles hundreds of queries daily without any human intervention. Truly impressive." },
-              { initials: "OB", name: "Omar Bilal", role: "Director, Westchester Group", text: "Mohsin and the Nyrvex team delivered our consultancy website on time and within budget. The design is modern, fast, and exactly what we envisioned. Highly recommended.", span: true },
-            ].map((t, i) => (
-              <ScrollReveal key={i} delay={i * 0.1} direction="up" className={t.span ? "sm:col-span-2 lg:col-span-1" : ""}>
-              <div className={`fancy-card p-6 md:p-8 h-full`}>
-                <div className="flex items-center gap-1 mb-4">
-                  {[...Array(5)].map((_, j) => (
-                    <svg key={j} className="w-4 h-4 fill-[#C9A84C]" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-muted-foreground mb-6 italic text-sm leading-relaxed">&ldquo;{t.text}&rdquo;</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center text-[#0A0F1E] font-bold text-sm"
-                      style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)" }}>
-                      {t.initials}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm">{t.name}</p>
-                      <p className="text-xs text-muted-foreground">{t.role}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-1 text-[10px] font-semibold px-2 py-1 rounded-full" style={{ background: "rgba(34,197,94,0.08)", color: "#22c55e", border: "1px solid rgba(34,197,94,0.15)" }}>
-                    <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                    </svg>
-                    Verified
-                  </div>
-                </div>
-              </div>
-              </ScrollReveal>
-            ))}
-          </div>
+          <TestimonialsCarousel />
         </div>
       </section>
 
