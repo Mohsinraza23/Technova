@@ -56,6 +56,7 @@ import StatsCounter from "./components/stats-counter"
 import FadeIn from "./components/fade-in"
 import FaqAccordion from "./components/faq-accordion"
 import ScrollReveal from "./components/scroll-reveal"
+import TiltCard from "./components/tilt-card"
 
 // Heavy canvas lib — browser-only, skip SSR
 const ParticlesBg = dynamic(() => import("./components/particles-bg"), { ssr: false })
@@ -146,7 +147,7 @@ export default function Home() {
 
             {/* Right — Animated DispatchDOS visualization */}
             <div className="flex items-center justify-center">
-              <div className="relative w-full max-w-[480px] animate-float">
+              <TiltCard className="relative w-full max-w-[480px] animate-float" intensity={6}>
                 {/* Glow */}
                 <div className="absolute inset-0 rounded-2xl blur-2xl"
                   style={{ background: "linear-gradient(135deg, rgba(201,168,76,0.2), rgba(160,120,48,0.1))" }} />
@@ -210,7 +211,7 @@ export default function Home() {
                     <div className="h-1 rounded-full" style={{ width: "100%", background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />
                   </div>
                 </div>
-              </div>
+              </TiltCard>
             </div>
           </div>
         </div>

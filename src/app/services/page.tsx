@@ -5,6 +5,7 @@ import {
   CheckCircle, ArrowRight, Zap, Clock, Shield, TrendingUp,
 } from "lucide-react"
 import ScrollReveal from "../components/scroll-reveal"
+import TiltCard from "../components/tilt-card"
 
 export const metadata: Metadata = {
   title: "Services — AI Solutions & Software Development",
@@ -282,6 +283,7 @@ export default function ServicesPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {WHY.map((w, i) => (
               <ScrollReveal key={w.title} delay={i * 0.1} direction="up">
+                <TiltCard className="h-full">
                 <div className="fancy-card rounded-xl p-6 text-center h-full">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4"
@@ -292,6 +294,7 @@ export default function ServicesPage() {
                   <h3 className="heading-sm mb-2">{w.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{w.desc}</p>
                 </div>
+                </TiltCard>
               </ScrollReveal>
             ))}
           </div>

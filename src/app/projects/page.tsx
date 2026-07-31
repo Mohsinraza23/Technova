@@ -3,6 +3,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ExternalLink, Code, Smartphone, Globe, LayoutDashboard } from "lucide-react"
 import ScrollReveal from "../components/scroll-reveal"
+import TiltCard from "../components/tilt-card"
 
 export const metadata: Metadata = {
   title: "Projects — Nyrvex Portfolio",
@@ -172,6 +173,7 @@ export default function ProjectsPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {PROJECTS.map((project, i) => (
               <ScrollReveal key={project.id} delay={i * 0.08} direction="up">
+                <TiltCard className="h-full">
                 <div className="group fancy-card rounded-2xl overflow-hidden h-full flex flex-col">
 
                   {/* Image */}
@@ -239,6 +241,7 @@ export default function ProjectsPage() {
                     </div>
                   </div>
                 </div>
+                </TiltCard>
               </ScrollReveal>
             ))}
           </div>
