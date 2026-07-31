@@ -42,8 +42,8 @@ const SERVICES = [
       "Analytics dashboard & conversation logs",
     ],
     useCases: ["E-commerce support", "Lead qualification", "Appointment booking", "FAQ automation"],
-    engagement: "Project-based",
     timeline: "2–4 weeks",
+    span: 2,
   },
   {
     icon: <Cpu className="h-7 w-7" />,
@@ -60,8 +60,8 @@ const SERVICES = [
       "Monitoring dashboard & activity logs",
     ],
     useCases: ["Lead research", "Email triage", "Report generation", "Data processing"],
-    engagement: "Project-based",
     timeline: "3–6 weeks",
+    span: 1,
   },
   {
     icon: <Workflow className="h-7 w-7" />,
@@ -78,8 +78,8 @@ const SERVICES = [
       "Error handling & human escalation paths",
     ],
     useCases: ["Invoice processing", "Carrier verification", "Data entry", "Compliance checks"],
-    engagement: "Project or retainer",
     timeline: "2–5 weeks",
+    span: 1,
   },
   {
     icon: <Brain className="h-7 w-7" />,
@@ -96,8 +96,8 @@ const SERVICES = [
       "Model deployment & monitoring API",
     ],
     useCases: ["Risk scoring", "Demand forecasting", "Fraud detection", "Document parsing"],
-    engagement: "Project-based",
     timeline: "4–10 weeks",
+    span: 2,
   },
   {
     icon: <Code className="h-7 w-7" />,
@@ -114,8 +114,8 @@ const SERVICES = [
       "Deployment, CI/CD & ongoing support",
     ],
     useCases: ["SaaS products", "E-commerce", "Admin dashboards", "Landing pages"],
-    engagement: "Project-based",
     timeline: "3–8 weeks",
+    span: 1,
   },
   {
     icon: <Smartphone className="h-7 w-7" />,
@@ -132,8 +132,8 @@ const SERVICES = [
       "App Store & Play Store submission",
     ],
     useCases: ["Customer-facing apps", "Driver/delivery apps", "Booking systems", "Field tools"],
-    engagement: "Project-based",
     timeline: "6–12 weeks",
+    span: 2,
   },
 ]
 
@@ -181,83 +181,138 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── SERVICES GRID ── */}
+      {/* ── SERVICES BENTO GRID ── */}
       <section className="section-padding">
         <div className="container px-4 md:px-6">
-          <div className="grid gap-6 lg:gap-8">
+          <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {SERVICES.map((s, i) => (
-              <ScrollReveal key={s.title} delay={0.05} direction={i % 2 === 0 ? "left" : "right"}>
-                <div className="fancy-card rounded-2xl p-7 md:p-10">
-                  <div className="grid lg:grid-cols-5 gap-8 items-start">
+              <ScrollReveal
+                key={s.title}
+                delay={i * 0.07}
+                direction="up"
+                className={s.span === 2 ? "md:col-span-2 lg:col-span-2" : "col-span-1"}
+              >
+                <TiltCard className="h-full" intensity={4}>
+                  <div className="fancy-card rounded-2xl p-6 md:p-8 h-full flex flex-col relative overflow-hidden">
 
-                    {/* Left: header + desc + use cases */}
-                    <div className="lg:col-span-3">
-                      <div className="flex items-center gap-4 mb-4">
-                        <div
-                          className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0"
-                          style={{ background: s.color, color: s.textColor }}
-                        >
-                          {s.icon}
-                        </div>
-                        <div>
-                          <h2 className="heading-sm">{s.title}</h2>
-                          <p className="text-xs font-semibold mt-0.5" style={{ color: s.textColor }}>{s.tagline}</p>
-                        </div>
-                      </div>
-                      <p className="body-md text-muted-foreground mb-6">{s.desc}</p>
+                    {/* Colored top accent line */}
+                    <div className="absolute top-0 left-0 right-0 h-0.5"
+                      style={{ background: `linear-gradient(90deg, ${s.textColor}, transparent 70%)` }} />
 
-                      {/* Use cases */}
-                      <div className="flex flex-wrap gap-2">
-                        {s.useCases.map((uc) => (
-                          <span
-                            key={uc}
-                            className="text-xs font-medium px-3 py-1 rounded-full"
-                            style={{ background: `${s.color}`, color: s.textColor, border: `1px solid ${s.textColor}25` }}
-                          >
-                            {uc}
+                    {/* Faint watermark icon */}
+                    <div className="absolute right-5 bottom-5 pointer-events-none select-none"
+                      style={{ color: s.textColor, opacity: 0.06, transform: "scale(5)", transformOrigin: "bottom right" }}>
+                      {s.icon}
+                    </div>
+
+                    {s.span === 2 ? (
+                      /* ── LARGE BENTO CARD ── */
+                      <>
+                        <div className="flex items-start gap-4 mb-5">
+                          <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                            style={{ background: s.color, color: s.textColor }}>
+                            {s.icon}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-3 flex-wrap mb-0.5">
+                              <h2 className="heading-sm">{s.title}</h2>
+                              <span className="text-[10px] font-bold px-2.5 py-1 rounded-full flex-shrink-0"
+                                style={{ background: s.color, color: s.textColor, border: `1px solid ${s.textColor}30` }}>
+                                {s.timeline}
+                              </span>
+                            </div>
+                            <p className="text-xs font-semibold" style={{ color: s.textColor }}>{s.tagline}</p>
+                          </div>
+                        </div>
+
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-6">{s.desc}</p>
+
+                        <div className="grid sm:grid-cols-2 gap-6 flex-1">
+                          {/* Includes */}
+                          <div>
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                              What&apos;s Included
+                            </p>
+                            <ul className="space-y-2">
+                              {s.includes.map((item) => (
+                                <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+                                  <CheckCircle className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" style={{ color: s.textColor }} />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Use cases + CTA */}
+                          <div className="flex flex-col">
+                            <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3">
+                              Use Cases
+                            </p>
+                            <div className="flex flex-wrap gap-1.5 mb-auto">
+                              {s.useCases.map((uc) => (
+                                <span key={uc} className="text-[10px] font-medium px-2.5 py-1 rounded-full"
+                                  style={{ background: s.color, color: s.textColor, border: `1px solid ${s.textColor}25` }}>
+                                  {uc}
+                                </span>
+                              ))}
+                            </div>
+                            <Link
+                              href="/contact"
+                              className="btn-shine inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 text-[#0A0F1E] mt-6 w-fit"
+                              style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", boxShadow: "0 4px 15px rgba(201,168,76,0.2)" }}
+                            >
+                              Get a Quote <ArrowRight className="h-4 w-4" />
+                            </Link>
+                          </div>
+                        </div>
+                      </>
+                    ) : (
+                      /* ── SMALL BENTO CARD ── */
+                      <>
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="w-11 h-11 rounded-xl flex items-center justify-center"
+                            style={{ background: s.color, color: s.textColor }}>
+                            {s.icon}
+                          </div>
+                          <span className="text-[10px] font-bold px-2.5 py-1 rounded-full"
+                            style={{ background: s.color, color: s.textColor, border: `1px solid ${s.textColor}30` }}>
+                            {s.timeline}
                           </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Right: includes + meta */}
-                    <div className="lg:col-span-2">
-                      <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-3">
-                        What&apos;s Included
-                      </p>
-                      <ul className="space-y-2.5 mb-6">
-                        {s.includes.map((item) => (
-                          <li key={item} className="flex items-start gap-2.5 text-sm text-muted-foreground">
-                            <CheckCircle className="h-4 w-4 mt-0.5 flex-shrink-0" style={{ color: s.textColor }} />
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Meta row */}
-                      <div className="flex items-center gap-4 mb-5 py-4 border-t border-b" style={{ borderColor: "rgba(201,168,76,0.08)" }}>
-                        <div>
-                          <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Engagement</p>
-                          <p className="text-xs font-semibold text-[#E8EDF5] mt-0.5">{s.engagement}</p>
                         </div>
-                        <div className="w-px h-8 bg-white/5" />
-                        <div>
-                          <p className="text-[10px] text-muted-foreground uppercase tracking-widest">Timeline</p>
-                          <p className="text-xs font-semibold text-[#E8EDF5] mt-0.5">{s.timeline}</p>
+
+                        <h2 className="heading-sm mb-1">{s.title}</h2>
+                        <p className="text-xs font-semibold mb-3" style={{ color: s.textColor }}>{s.tagline}</p>
+                        <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">{s.desc}</p>
+
+                        <ul className="space-y-2 mb-4">
+                          {s.includes.slice(0, 3).map((item) => (
+                            <li key={item} className="flex items-start gap-2 text-xs text-muted-foreground">
+                              <CheckCircle className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" style={{ color: s.textColor }} />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="flex flex-wrap gap-1.5 mb-5">
+                          {s.useCases.slice(0, 3).map((uc) => (
+                            <span key={uc} className="text-[10px] font-medium px-2 py-0.5 rounded-full"
+                              style={{ background: s.color, color: s.textColor, border: `1px solid ${s.textColor}25` }}>
+                              {uc}
+                            </span>
+                          ))}
                         </div>
-                      </div>
 
-                      <Link
-                        href="/contact"
-                        className="btn-shine inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 text-[#0A0F1E]"
-                        style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", boxShadow: "0 4px 15px rgba(201,168,76,0.2)" }}
-                      >
-                        Get a Quote <ArrowRight className="h-4 w-4" />
-                      </Link>
-                    </div>
-
+                        <Link
+                          href="/contact"
+                          className="btn-shine inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-lg transition-all hover:-translate-y-0.5 text-[#0A0F1E] w-fit"
+                          style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", boxShadow: "0 4px 15px rgba(201,168,76,0.15)" }}
+                        >
+                          Get a Quote <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </>
+                    )}
                   </div>
-                </div>
+                </TiltCard>
               </ScrollReveal>
             ))}
           </div>
