@@ -61,6 +61,35 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Firefox custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #C9A84C #0F1629;
+  }
+
+  /* ── Custom Scrollbar (Chrome / Edge / Safari) ── */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0A0F1E;
+    border-left: 1px solid rgba(201, 168, 76, 0.06);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #A07830 0%, #C9A84C 50%, #E8C96A 100%);
+    border-radius: 999px;
+    border: 1px solid rgba(10, 15, 30, 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #C9A84C 0%, #E8C96A 100%);
+    box-shadow: 0 0 8px rgba(201, 168, 76, 0.6);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #0A0F1E;
   }
   h1, h2, h3, h4, h5, h6 {
     @apply font-montserrat font-bold;
