@@ -152,6 +152,7 @@ export default function Home() {
                 <div className="absolute inset-0 rounded-2xl blur-2xl"
                   style={{ background: "linear-gradient(135deg, rgba(201,168,76,0.2), rgba(160,120,48,0.1))" }} />
 
+                <div className="glow-border-wrap-pulse rounded-2xl">
                 <div className="fancy-card rounded-2xl p-5 relative">
                   {/* Card Header */}
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
@@ -210,6 +211,7 @@ export default function Home() {
                   <div className="mt-3 w-full h-1 rounded-full" style={{ background: "rgba(201,168,76,0.1)" }}>
                     <div className="h-1 rounded-full" style={{ width: "100%", background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />
                   </div>
+                </div>
                 </div>
               </TiltCard>
             </div>

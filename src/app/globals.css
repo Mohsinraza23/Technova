@@ -587,6 +587,45 @@
   background: linear-gradient(to bottom, transparent, rgba(10,15,30,0.8));
 }
 
+/* ── Animated Gradient Border ── */
+.glow-border-wrap {
+  position: relative;
+  border-radius: 1.15rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #A07830, #C9A84C, #E8C96A, #C9A84C, #A07830);
+  background-size: 300% 300%;
+  animation: glow-border-shift 5s ease-in-out infinite;
+}
+
+.glow-border-wrap-pulse {
+  position: relative;
+  border-radius: 1.15rem;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #A07830, #C9A84C, #E8C96A, #C9A84C, #A07830);
+  background-size: 300% 300%;
+  animation: glow-border-shift 5s ease-in-out infinite, glow-shadow-pulse 3s ease-in-out infinite;
+}
+
+.glow-border-wrap .fancy-card,
+.glow-border-wrap-pulse .fancy-card {
+  border: none !important;
+  border-radius: 1rem;
+}
+
+@keyframes glow-border-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%       { background-position: 100% 50%; }
+}
+
+@keyframes glow-shadow-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25), 0 0 15px rgba(201,168,76,0.12);
+  }
+  50% {
+    box-shadow: 0 8px 40px rgba(0,0,0,0.35), 0 0 40px rgba(201,168,76,0.35), 0 0 80px rgba(201,168,76,0.1);
+  }
+}
+
 /* Social Proof Bar */
 .proof-bar {
   background: rgba(201,168,76,0.06);

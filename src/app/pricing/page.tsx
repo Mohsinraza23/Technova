@@ -116,7 +116,7 @@ export default function PricingPage() {
           <div className="grid gap-8 md:grid-cols-3 max-w-5xl mx-auto">
             {PLANS.map((plan, i) => (
               <ScrollReveal key={plan.name} delay={i * 0.1} direction="up">
-                <div className="relative flex flex-col h-full">
+                <div className={`relative flex flex-col h-full ${plan.popular ? "glow-border-wrap-pulse" : ""}`}>
                   {plan.popular && (
                     <div
                       className="absolute -top-4 left-1/2 -translate-x-1/2 z-10 text-[#0A0F1E] text-xs font-black px-4 py-1.5 rounded-full shadow-lg whitespace-nowrap"
@@ -125,10 +125,7 @@ export default function PricingPage() {
                       Most Popular
                     </div>
                   )}
-                  <div
-                    className="fancy-card p-8 flex flex-col flex-1"
-                    style={plan.popular ? { border: "1px solid rgba(201,168,76,0.45)", boxShadow: "0 0 40px rgba(201,168,76,0.1)" } : {}}
-                  >
+                  <div className="fancy-card p-8 flex flex-col flex-1">
                     {/* Top accent */}
                     {plan.popular && (
                       <div className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl" style={{ background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />

@@ -79,6 +79,7 @@ export default function BlogPage() {
           <ScrollReveal direction="up">
             <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-6">Featured Article</p>
             <Link href={`/blog/${featured.slug}`} className="group block">
+              <div className="glow-border-wrap rounded-2xl">
               <div className="fancy-card rounded-2xl p-8 md:p-12 relative overflow-hidden">
                 {/* Top accent bar */}
                 <div className="absolute top-0 left-0 right-0 h-0.5" style={{ background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />
@@ -131,6 +132,7 @@ export default function BlogPage() {
                     </div>
                   </div>
                 </div>
+              </div>
               </div>
             </Link>
           </ScrollReveal>
