@@ -249,7 +249,7 @@ export default function Header() {
           <div className="hidden md:flex items-center gap-3">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-sm font-bold py-2.5 px-5 rounded-lg transition-all hover:-translate-y-0.5"
+              className="btn-shine inline-flex items-center gap-2 text-sm font-bold py-2.5 px-5 rounded-lg transition-all hover:-translate-y-0.5"
               style={{
                 background: "linear-gradient(135deg, #C9A84C, #E8C96A)",
                 color: "#0A0F1E",
@@ -381,7 +381,7 @@ export default function Header() {
         <div className="px-4 py-5 border-t space-y-3" style={{ borderColor: "rgba(201,168,76,0.1)" }}>
           <Link
             href="/contact"
-            className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-[#0A0F1E] transition-all hover:-translate-y-0.5"
+            className="btn-shine w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-[#0A0F1E] transition-all hover:-translate-y-0.5"
             style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", boxShadow: "0 4px 15px rgba(201,168,76,0.3)" }}
           >
             Request Demo <ArrowRight className="h-4 w-4" />

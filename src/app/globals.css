@@ -685,30 +685,84 @@ table { border-collapse: collapse; }
 }
 
 /* ── Button Ripple Effect ── */
-.btn-primary, .btn-outline {
+/* ── Shiny button hover effect ── */
+.btn-primary,
+.btn-outline,
+.btn-shine {
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::after, .btn-outline::after {
+/* Diagonal shine sweep on btn-primary */
+.btn-primary::after {
   content: "";
   position: absolute;
-  width: 0;
-  height: 0;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 50%;
-  opacity: 0;
-  transition: none;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 80%
+  );
+  transform: skewX(-15deg);
+  transition: left 0s;
+  pointer-events: none;
 }
 
-.btn-primary:active::after, .btn-outline:active::after {
-  width: 300px;
-  height: 300px;
-  opacity: 0;
-  transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+.btn-primary:hover::after {
+  left: 140%;
+  transition: left 0.55s ease;
+}
+
+/* Subtle gold shine on btn-outline */
+.btn-outline::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(201, 168, 76, 0.25) 50%,
+    transparent 80%
+  );
+  transform: skewX(-15deg);
+  transition: left 0s;
+  pointer-events: none;
+}
+
+.btn-outline:hover::after {
+  left: 140%;
+  transition: left 0.55s ease;
+}
+
+/* Utility class for inline-style gold buttons */
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 80%
+  );
+  transform: skewX(-15deg);
+  transition: left 0s;
+  pointer-events: none;
+}
+
+.btn-shine:hover::after {
+  left: 140%;
+  transition: left 0.55s ease;
 }
 
 /* ── Enhanced Card Hover Glow ── */

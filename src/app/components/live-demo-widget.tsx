@@ -90,7 +90,7 @@ export default function LiveDemoWidget() {
         <button
           onClick={handleSearch}
           disabled={loading || !input.trim()}
-          className="px-5 py-3 rounded-xl text-sm font-bold text-[#0A0F1E] transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+          className="btn-shine px-5 py-3 rounded-xl text-sm font-bold text-[#0A0F1E] transition-all hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
           style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)" }}
         >
           {loading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Search className="h-4 w-4" />}

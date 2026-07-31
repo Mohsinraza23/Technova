@@ -135,7 +135,7 @@ export default function ContactPage() {
                     <Textarea id="message" name="message" placeholder="Tell us about your project or inquiry..." required className="min-h-[120px]" value={formData.message} onChange={handleChange} />
                   </div>
                   {error && <p className="text-sm text-red-400">{error}</p>}
-                  <Button type="submit" className="w-full" disabled={isSubmitting}
+                  <Button type="submit" className="btn-shine w-full" disabled={isSubmitting}
                     style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", color: "#0A0F1E", fontWeight: 700 }}>
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>

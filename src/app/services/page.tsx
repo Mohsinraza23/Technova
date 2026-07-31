@@ -249,7 +249,7 @@ export default function ServicesPage() {
 
                       <Link
                         href="/contact"
-                        className="inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 text-[#0A0F1E]"
+                        className="btn-shine inline-flex items-center gap-2 text-sm font-bold px-5 py-2.5 rounded-lg transition-all hover:-translate-y-0.5 text-[#0A0F1E]"
                         style={{ background: "linear-gradient(135deg, #C9A84C, #E8C96A)", boxShadow: "0 4px 15px rgba(201,168,76,0.2)" }}
                       >
                         Get a Quote <ArrowRight className="h-4 w-4" />
