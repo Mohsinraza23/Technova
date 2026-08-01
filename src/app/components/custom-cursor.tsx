@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function CustomCursor() {
   const [pos, setPos] = useState({ x: -100, y: -100 })
@@ -8,6 +8,7 @@ export default function CustomCursor() {
   const [clicking, setClicking] = useState(false)
   const [hovering, setHovering] = useState(false)
   const [visible, setVisible] = useState(false)
+  const spotlightRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Only on desktop
@@ -21,6 +22,11 @@ export default function CustomCursor() {
       targetY = e.clientY
       setPos({ x: e.clientX, y: e.clientY })
       if (!visible) setVisible(true)
+      // Directly mutate spotlight style — avoids React re-render on every mouse move
+      if (spotlightRef.current) {
+        spotlightRef.current.style.background =
+          `radial-gradient(700px circle at ${e.clientX}px ${e.clientY}px, rgba(201,168,76,0.055), transparent 40%)`
+      }
     }
 
     const onLeave = () => setVisible(false)
@@ -71,6 +77,17 @@ export default function CustomCursor() {
 
   return (
     <>
+      {/* Page-wide cursor spotlight glow */}
+      <div
+        ref={spotlightRef}
+        style={{
+          position: "fixed",
+          inset: 0,
+          pointerEvents: "none",
+          zIndex: 1,
+          transition: "background 0.08s ease",
+        }}
+      />
       {/* Dot cursor */}
       <div
         style={{
