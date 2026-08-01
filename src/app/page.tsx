@@ -59,6 +59,7 @@ import ScrollReveal from "./components/scroll-reveal"
 import TiltCard from "./components/tilt-card"
 import TestimonialsCarousel from "./components/testimonials-carousel"
 import MarqueeStrip from "./components/marquee-strip"
+import ScrambleText from "./components/scramble-text"
 
 // Heavy canvas lib — browser-only, skip SSR
 const ParticlesBg = dynamic(() => import("./components/particles-bg"), { ssr: false })
@@ -107,7 +108,7 @@ export default function Home() {
 
               <div>
                 <h1 className="heading-xl mb-4">
-                  We Build <br />
+                  <ScrambleText text="We Build" /> <br />
                   <span className="gradient-text">
                     <TypingText />
                   </span>
@@ -290,7 +291,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10 md:mb-16">
               <div className="badge-gold mb-2">Flagship Product</div>
               <h2 className="heading-lg">
-                Meet <span className="gradient-text">DispatchDOS</span>
+                <ScrambleText text="Meet" /> <span className="gradient-text">DispatchDOS</span>
               </h2>
               <p className="max-w-[700px] body-lg text-muted-foreground">
                 Freight brokers waste hours verifying carriers manually on FMCSA — one by one.
@@ -372,7 +373,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10 md:mb-16">
               <div className="badge-gold mb-2">What We Build</div>
               <h2 className="heading-lg">
-                Our <span className="gradient-text">Services</span>
+                <ScrambleText text="Our" /> <span className="gradient-text">Services</span>
               </h2>
               <div className="section-divider" />
               <p className="max-w-[680px] body-lg text-muted-foreground">
@@ -420,7 +421,7 @@ export default function Home() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-10 md:mb-16">
               <div className="badge-gold mb-2">Portfolio</div>
               <h2 className="heading-lg">
-                Our Recent <span className="gradient-text">Work</span>
+                <ScrambleText text="Our Recent" /> <span className="gradient-text">Work</span>
               </h2>
               <div className="section-divider" />
               <p className="max-w-[560px] body-lg text-muted-foreground">
