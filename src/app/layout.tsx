@@ -112,6 +112,20 @@ export default function RootLayout({
       <body className={`${montserrat.variable} ${poppins.variable} font-sans`}>
         <Providers>
           <div className="flex min-h-screen flex-col animated-bg">
+            {/* Film grain noise overlay — adds tactile depth like Vercel/Linear */}
+            <div
+              aria-hidden="true"
+              style={{
+                position: "fixed",
+                inset: 0,
+                zIndex: 9997,
+                pointerEvents: "none",
+                opacity: 0.032,
+                backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                backgroundRepeat: "repeat",
+                backgroundSize: "180px 180px",
+              }}
+            />
             <CustomCursor />
             <Header />
             <main id="main-content" className="flex-1">
