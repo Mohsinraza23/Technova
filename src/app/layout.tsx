@@ -13,7 +13,8 @@ const PageLoader     = dynamic(() => import("./components/page-loader"),     { s
 const ScrollToTop    = dynamic(() => import("./components/scroll-to-top"),   { ssr: false })
 const ChatBot        = dynamic(() => import("./components/chat-bot"),        { ssr: false })
 const CustomCursor   = dynamic(() => import("./components/custom-cursor"),   { ssr: false })
-const FloatingBadge  = dynamic(() => import("./components/floating-badge"),  { ssr: false })
+const FloatingBadge    = dynamic(() => import("./components/floating-badge"),    { ssr: false })
+import PageTransition   from "./components/page-transition"
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -110,7 +111,9 @@ export default function RootLayout({
           <div className="flex min-h-screen flex-col animated-bg">
             <CustomCursor />
             <Header />
-            <main id="main-content" className="flex-1">{children}</main>
+            <main id="main-content" className="flex-1">
+              <PageTransition>{children}</PageTransition>
+            </main>
             <Footer />
             <WhatsAppButton />
             <ScrollToTop />
