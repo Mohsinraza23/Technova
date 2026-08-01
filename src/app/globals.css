@@ -680,6 +680,11 @@
   to   { width: 100%; }
 }
 
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* Social Proof Bar */
 .proof-bar {
   background: rgba(201,168,76,0.06);

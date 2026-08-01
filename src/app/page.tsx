@@ -58,6 +58,7 @@ import FaqAccordion from "./components/faq-accordion"
 import ScrollReveal from "./components/scroll-reveal"
 import TiltCard from "./components/tilt-card"
 import TestimonialsCarousel from "./components/testimonials-carousel"
+import MarqueeStrip from "./components/marquee-strip"
 
 // Heavy canvas lib — browser-only, skip SSR
 const ParticlesBg = dynamic(() => import("./components/particles-bg"), { ssr: false })
@@ -275,6 +276,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── MARQUEE TECH STRIP ── */}
+      <MarqueeStrip />
 
       {/* ── STATS ── */}
       <StatsCounter />
