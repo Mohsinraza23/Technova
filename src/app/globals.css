@@ -263,6 +263,26 @@
   opacity: 1;
 }
 
+/* Pointer-aware spotlight — follows cursor position inside each card */
+.fancy-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    380px circle at var(--card-x, 50%) var(--card-y, 50%),
+    rgba(201, 168, 76, 0.11),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.fancy-card:hover::after {
+  opacity: 1;
+}
+
 .fancy-border {
   position: relative;
   border-radius: 0.75rem;

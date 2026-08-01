@@ -14,6 +14,7 @@ const ScrollToTop    = dynamic(() => import("./components/scroll-to-top"),   { s
 const ChatBot        = dynamic(() => import("./components/chat-bot"),        { ssr: false })
 const CustomCursor   = dynamic(() => import("./components/custom-cursor"),   { ssr: false })
 const FloatingBadge    = dynamic(() => import("./components/floating-badge"),    { ssr: false })
+const CardSpotlight    = dynamic(() => import("./components/card-spotlight"),    { ssr: false })
 import PageTransition   from "./components/page-transition"
 
 const montserrat = Montserrat({
@@ -120,6 +121,7 @@ export default function RootLayout({
             <PageLoader />
             <ChatBot />
             <FloatingBadge />
+            <CardSpotlight />
           </div>
         </Providers>
       </body>
