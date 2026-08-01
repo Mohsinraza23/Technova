@@ -9,10 +9,11 @@ import { Providers } from "./components/providers"
 
 // Dynamically import client-only components — keeps initial JS bundle small
 const WhatsAppButton = dynamic(() => import("./components/whatsapp-button"), { ssr: false })
-const PageLoader    = dynamic(() => import("./components/page-loader"),    { ssr: false })
-const ScrollToTop   = dynamic(() => import("./components/scroll-to-top"),  { ssr: false })
-const ChatBot       = dynamic(() => import("./components/chat-bot"),       { ssr: false })
-const CustomCursor  = dynamic(() => import("./components/custom-cursor"),  { ssr: false })
+const PageLoader     = dynamic(() => import("./components/page-loader"),     { ssr: false })
+const ScrollToTop    = dynamic(() => import("./components/scroll-to-top"),   { ssr: false })
+const ChatBot        = dynamic(() => import("./components/chat-bot"),        { ssr: false })
+const CustomCursor   = dynamic(() => import("./components/custom-cursor"),   { ssr: false })
+const FloatingBadge  = dynamic(() => import("./components/floating-badge"),  { ssr: false })
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -115,6 +116,7 @@ export default function RootLayout({
             <ScrollToTop />
             <PageLoader />
             <ChatBot />
+            <FloatingBadge />
           </div>
         </Providers>
       </body>
