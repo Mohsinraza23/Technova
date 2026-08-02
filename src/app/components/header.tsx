@@ -14,6 +14,13 @@ const NAV_LINKS = [
   { href: "/contact", label: "Contact" },
 ]
 
+const MOBILE_EXTRA_LINKS = [
+  { href: "/ai-services", label: "AI Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/testimonials", label: "Testimonials" },
+  { href: "/blog", label: "Blog" },
+]
+
 const DISPATCH_FEATURES = [
   { icon: <Upload className="h-4 w-4" />, title: "Bulk Upload", desc: "1,000+ carriers via Excel/CSV" },
   { icon: <ShieldCheck className="h-4 w-4" />, title: "FMCSA Verification", desc: "30+ data fields per carrier" },
@@ -333,12 +340,46 @@ export default function Header() {
           </button>
         </div>
 
+        {/* Mobile search button */}
+        <button
+          onClick={() => {
+            setIsMenuOpen(false)
+            setTimeout(() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true })), 300)
+          }}
+          className="mx-4 mt-4 flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm w-[calc(100%-2rem)]"
+          style={{ background: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.15)", color: "#8898AA" }}
+        >
+          <Search className="h-4 w-4" style={{ color: "#C9A84C" }} />
+          <span>Search pages...</span>
+          <span className="ml-auto text-[10px] font-mono" style={{ color: "#C9A84C" }}>⌘K</span>
+        </button>
+
         {/* Nav links */}
         <nav className="flex-1 overflow-y-auto px-4 py-4 space-y-1">
           {NAV_LINKS.map(({ href, label }) => (
             <Link
               key={href}
               href={href}
+              onClick={() => setIsMenuOpen(false)}
+              className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                isActive(href)
+                  ? "text-[#C9A84C] font-semibold"
+                  : "text-[#94A3B8] hover:text-[#E8EDF5] hover:bg-white/5"
+              }`}
+              style={isActive(href) ? { background: "rgba(201,168,76,0.08)", borderLeft: "3px solid #C9A84C" } : {}}
+              aria-current={isActive(href) ? "page" : undefined}
+            >
+              {label}
+            </Link>
+          ))}
+
+          {/* Extra links */}
+          <div className="pt-1 pb-1 border-t my-2" style={{ borderColor: "rgba(201,168,76,0.08)" }} />
+          {MOBILE_EXTRA_LINKS.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              onClick={() => setIsMenuOpen(false)}
               className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
                 isActive(href)
                   ? "text-[#C9A84C] font-semibold"
@@ -354,6 +395,7 @@ export default function Header() {
           {/* DispatchDOS section */}
           <Link
             href="/dispatchdos"
+            onClick={() => setIsMenuOpen(false)}
             className={`flex items-center px-4 py-3 rounded-xl text-base font-medium transition-all ${
               isActive("/dispatchdos")
                 ? "text-[#C9A84C] font-semibold"

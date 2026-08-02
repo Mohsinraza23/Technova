@@ -15,7 +15,7 @@ const ChatBot        = dynamic(() => import("./components/chat-bot"),        { s
 const CustomCursor   = dynamic(() => import("./components/custom-cursor"),   { ssr: false })
 const FloatingBadge    = dynamic(() => import("./components/floating-badge"),    { ssr: false })
 const CardSpotlight    = dynamic(() => import("./components/card-spotlight"),    { ssr: false })
-const ScrollProgress   = dynamic(() => import("./components/scroll-progress"),   { ssr: false })
+// ScrollProgress removed — header already has its own scroll progress bar
 const MagneticButtons  = dynamic(() => import("./components/magnetic-buttons"),  { ssr: false })
 const CommandPalette   = dynamic(() => import("./components/command-palette"),   { ssr: false })
 import PageTransition   from "./components/page-transition"
@@ -139,7 +139,6 @@ export default function RootLayout({
             <ChatBot />
             <FloatingBadge />
             <CardSpotlight />
-            <ScrollProgress />
             <MagneticButtons />
             <CommandPalette />
           </div>

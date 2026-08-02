@@ -26,7 +26,7 @@ export default function FloatingBadge() {
 
   return (
     <div
-      className="fixed bottom-24 right-5 z-40 animate-float"
+      className="fixed bottom-40 right-5 z-40 animate-float"
       style={{ filter: "drop-shadow(0 8px 32px rgba(201,168,76,0.35))" }}
     >
       {/* Outer glow ring */}

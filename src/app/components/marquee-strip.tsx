@@ -28,11 +28,11 @@ export default function MarqueeStrip() {
       {/* Left + right fade masks */}
       <div
         className="absolute inset-y-0 left-0 w-20 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to right, var(--background), transparent)" }}
+        style={{ background: "linear-gradient(to right, #0A0F1E, transparent)" }}
       />
       <div
         className="absolute inset-y-0 right-0 w-20 z-10 pointer-events-none"
-        style={{ background: "linear-gradient(to left, var(--background), transparent)" }}
+        style={{ background: "linear-gradient(to left, #0A0F1E, transparent)" }}
       />
 
       <div
