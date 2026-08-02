@@ -17,6 +17,7 @@ const FloatingBadge    = dynamic(() => import("./components/floating-badge"),   
 const CardSpotlight    = dynamic(() => import("./components/card-spotlight"),    { ssr: false })
 const ScrollProgress   = dynamic(() => import("./components/scroll-progress"),   { ssr: false })
 const MagneticButtons  = dynamic(() => import("./components/magnetic-buttons"),  { ssr: false })
+const CommandPalette   = dynamic(() => import("./components/command-palette"),   { ssr: false })
 import PageTransition   from "./components/page-transition"
 
 const montserrat = Montserrat({
@@ -140,6 +141,7 @@ export default function RootLayout({
             <CardSpotlight />
             <ScrollProgress />
             <MagneticButtons />
+            <CommandPalette />
           </div>
         </Providers>
       </body>

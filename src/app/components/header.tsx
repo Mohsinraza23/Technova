@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, ChevronDown, FileSpreadsheet, ShieldCheck, BarChart3, Upload, CheckCircle, ArrowRight } from "lucide-react"
+import { Menu, X, ChevronDown, FileSpreadsheet, ShieldCheck, BarChart3, Upload, CheckCircle, ArrowRight, Search } from "lucide-react"
 import { usePathname } from "next/navigation"
 
 const NAV_LINKS = [
@@ -247,6 +247,17 @@ export default function Header() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
+            {/* ⌘K hint */}
+            <button
+              onClick={() => window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", metaKey: true, bubbles: true }))}
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-all hover:border-[#C9A84C]/30"
+              style={{ background: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.12)", color: "#8898AA" }}
+              aria-label="Open command palette"
+            >
+              <Search className="h-3 w-3" />
+              <span>Search</span>
+              <kbd className="ml-1 text-[10px] px-1.5 py-0.5 rounded" style={{ background: "rgba(201,168,76,0.08)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.15)", fontFamily: "monospace" }}>⌘K</kbd>
+            </button>
             <Link
               href="/contact"
               className="btn-shine inline-flex items-center gap-2 text-sm font-bold py-2.5 px-5 rounded-lg transition-all hover:-translate-y-0.5"
