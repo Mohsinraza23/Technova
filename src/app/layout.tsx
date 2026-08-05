@@ -17,6 +17,7 @@ const FloatingBadge    = dynamic(() => import("./components/floating-badge"),   
 const CardSpotlight    = dynamic(() => import("./components/card-spotlight"),    { ssr: false })
 // ScrollProgress removed — header already has its own scroll progress bar
 const MagneticButtons  = dynamic(() => import("./components/magnetic-buttons"),  { ssr: false })
+const ParticleBurst    = dynamic(() => import("./components/particle-burst"),    { ssr: false })
 const CommandPalette   = dynamic(() => import("./components/command-palette"),   { ssr: false })
 import PageTransition   from "./components/page-transition"
 
@@ -140,6 +141,7 @@ export default function RootLayout({
             <FloatingBadge />
             <CardSpotlight />
             <MagneticButtons />
+            <ParticleBurst />
             <CommandPalette />
           </div>
         </Providers>
