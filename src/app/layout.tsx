@@ -18,6 +18,7 @@ const CardSpotlight    = dynamic(() => import("./components/card-spotlight"),   
 // ScrollProgress removed — header already has its own scroll progress bar
 const MagneticButtons  = dynamic(() => import("./components/magnetic-buttons"),  { ssr: false })
 const ParticleBurst    = dynamic(() => import("./components/particle-burst"),    { ssr: false })
+const StickyCTA        = dynamic(() => import("./components/sticky-cta"),        { ssr: false })
 const CommandPalette   = dynamic(() => import("./components/command-palette"),   { ssr: false })
 import PageTransition   from "./components/page-transition"
 
@@ -142,6 +143,7 @@ export default function RootLayout({
             <CardSpotlight />
             <MagneticButtons />
             <ParticleBurst />
+            <StickyCTA />
             <CommandPalette />
           </div>
         </Providers>
