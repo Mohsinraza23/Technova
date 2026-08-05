@@ -57,7 +57,7 @@ export default function SocialProofToast() {
 
   return (
     <div
-      className="fixed bottom-28 left-4 z-[300] max-w-[300px]"
+      className="fixed bottom-32 left-4 z-[300] max-w-[300px]"
       style={{
         transform: visible ? "translateX(0) scale(1)" : "translateX(-120%) scale(0.9)",
         opacity: visible ? 1 : 0,

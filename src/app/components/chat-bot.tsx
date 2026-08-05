@@ -88,7 +88,7 @@ export default function ChatBot() {
     <>
       {/* Chat window */}
       <div
-        className="fixed bottom-24 left-4 z-50 w-80 flex flex-col rounded-2xl shadow-2xl overflow-hidden"
+        className="fixed bottom-24 left-4 z-[210] w-80 max-w-[calc(100vw-2rem)] flex flex-col rounded-2xl shadow-2xl overflow-hidden"
         style={{
           border: "1px solid rgba(201,168,76,0.2)",
           background: "rgba(8, 13, 28, 0.97)",
@@ -217,7 +217,7 @@ export default function ChatBot() {
             return !prev
           })
         }}
-        className="fixed bottom-6 left-4 z-50 rounded-full p-3.5 shadow-xl transition-all hover:-translate-y-1"
+        className="fixed bottom-6 left-4 z-[210] rounded-full p-3.5 shadow-xl transition-all hover:-translate-y-1"
         style={{
           background: "linear-gradient(135deg, #A07830, #C9A84C, #E8C96A)",
           boxShadow: "0 8px 25px rgba(201,168,76,0.4)",
