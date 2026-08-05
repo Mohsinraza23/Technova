@@ -1,47 +1,39 @@
 import Link from "next/link"
-import { ArrowRight, Home, FileSpreadsheet } from "lucide-react"
+import { ArrowRight, Home, FileSpreadsheet, MessageSquare, Search } from "lucide-react"
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center relative overflow-hidden">
+    <div className="min-h-[88vh] flex items-center justify-center relative overflow-hidden">
 
       {/* Background blobs */}
-      <div className="absolute pointer-events-none">
-        <div style={{
-          position: "absolute",
-          width: "500px",
-          height: "500px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)",
-          top: "-200px",
-          left: "-150px",
-          filter: "blur(60px)",
-        }} />
-        <div style={{
-          position: "absolute",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(160,120,48,0.06) 0%, transparent 70%)",
-          bottom: "-150px",
-          right: "-100px",
-          filter: "blur(60px)",
-        }} />
-      </div>
+      <div className="blob blob-1" style={{ opacity: 0.12 }} />
+      <div className="blob blob-4" style={{ opacity: 0.2 }} />
+
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(rgba(201,168,76,0.12) 1px, transparent 1px)",
+          backgroundSize: "32px 32px",
+          maskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent)",
+          WebkitMaskImage: "radial-gradient(ellipse 70% 70% at 50% 50%, black, transparent)",
+        }}
+      />
 
       <div className="container px-4 text-center relative z-10">
 
-        {/* 404 number */}
-        <div className="mb-6 select-none" aria-hidden="true">
+        {/* Glitch 404 */}
+        <div className="mb-4 select-none" aria-hidden="true">
           <span
-            className="text-[8rem] sm:text-[12rem] font-black leading-none"
+            className="glitch-404 inline-block text-[8rem] sm:text-[12rem] font-black leading-none"
             style={{
               fontFamily: "var(--font-montserrat)",
-              background: "linear-gradient(135deg, rgba(201,168,76,0.15), rgba(232,201,106,0.08))",
+              background: "linear-gradient(135deg, rgba(201,168,76,0.18), rgba(232,201,106,0.09), rgba(160,120,48,0.15))",
               WebkitBackgroundClip: "text",
               backgroundClip: "text",
               color: "transparent",
               letterSpacing: "-0.05em",
+              filter: "drop-shadow(0 0 40px rgba(201,168,76,0.15))",
             }}
           >
             404
@@ -49,7 +41,10 @@ export default function NotFound() {
         </div>
 
         {/* Gold accent line */}
-        <div className="w-16 h-1 rounded-full mx-auto mb-8" style={{ background: "linear-gradient(90deg, #A07830, #C9A84C, #E8C96A)" }} />
+        <div
+          className="h-[2px] w-20 rounded-full mx-auto mb-8"
+          style={{ background: "linear-gradient(90deg, transparent, #C9A84C, #E8C96A, #C9A84C, transparent)" }}
+        />
 
         <div className="badge-gold mx-auto w-fit mb-5">Page Not Found</div>
 
@@ -57,57 +52,53 @@ export default function NotFound() {
           This page doesn&apos;t <span className="gradient-text">exist</span>
         </h1>
 
-        <p className="body-lg text-muted-foreground max-w-[500px] mx-auto mb-10">
+        <p className="body-lg text-muted-foreground max-w-[480px] mx-auto mb-10">
           The page you&apos;re looking for may have been moved, deleted, or never existed.
           Let&apos;s get you back on track.
         </p>
 
-        {/* Quick links */}
+        {/* Tip */}
+        <div
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs mb-10"
+          style={{ background: "rgba(201,168,76,0.06)", border: "1px solid rgba(201,168,76,0.15)", color: "#8898AA" }}
+        >
+          <Search className="h-3 w-3" style={{ color: "#C9A84C" }} />
+          Press <kbd className="px-1.5 py-0.5 rounded text-[10px] font-mono mx-1" style={{ background: "rgba(201,168,76,0.1)", color: "#C9A84C", border: "1px solid rgba(201,168,76,0.2)" }}>⌘K</kbd> to search all pages
+        </div>
+
+        {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 justify-center mb-12">
-          <Link
-            href="/"
-            className="btn-primary inline-flex items-center gap-2 justify-center"
-          >
+          <Link href="/" className="btn-primary inline-flex items-center gap-2 justify-center">
             <Home className="h-4 w-4" />
             Back to Home
           </Link>
-          <Link
-            href="/dispatchdos"
-            className="btn-outline inline-flex items-center gap-2 justify-center"
-          >
+          <Link href="/dispatchdos" className="btn-outline inline-flex items-center gap-2 justify-center">
             <FileSpreadsheet className="h-4 w-4" />
             See DispatchDOS
           </Link>
-          <Link
-            href="/contact"
-            className="btn-outline inline-flex items-center gap-2 justify-center"
-          >
+          <Link href="/contact" className="btn-outline inline-flex items-center gap-2 justify-center">
+            <MessageSquare className="h-4 w-4" />
             Contact Us
-            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
 
-        {/* Helpful links grid */}
+        {/* Quick links */}
         <div className="max-w-lg mx-auto">
-          <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground mb-4">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-4">
             Popular pages
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
             {[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/services" },
+              { label: "Home",        href: "/" },
+              { label: "Services",    href: "/services" },
               { label: "DispatchDOS", href: "/dispatchdos" },
-              { label: "Blog", href: "/blog" },
+              { label: "Blog",        href: "/blog" },
             ].map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
-                className="px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:-translate-y-0.5 text-center"
-                style={{
-                  background: "rgba(201,168,76,0.06)",
-                  border: "1px solid rgba(201,168,76,0.12)",
-                  color: "#8898AA",
-                }}
+                className="px-3 py-2.5 rounded-xl text-sm font-medium transition-all hover:-translate-y-0.5 hover:border-[#C9A84C]/30 text-center"
+                style={{ background: "rgba(201,168,76,0.05)", border: "1px solid rgba(201,168,76,0.1)", color: "#8898AA" }}
               >
                 {l.label}
               </Link>
