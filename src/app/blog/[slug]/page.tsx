@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowLeft, Clock, Calendar, User } from "lucide-react"
 import { notFound } from "next/navigation"
 import { ARTICLES, CATEGORY_COLORS } from "../data"
+import ReadingProgress from "../../components/reading-progress"
 
 interface Props {
   params: { slug: string }
@@ -52,6 +53,7 @@ export default function ArticlePage({ params }: Props) {
 
   return (
     <div className="flex flex-col">
+      <ReadingProgress targetId="article-body" />
       <section className="section-padding">
         <div className="container px-4 md:px-6">
           <div className="max-w-3xl mx-auto">
@@ -100,6 +102,7 @@ export default function ArticlePage({ params }: Props) {
 
             {/* Article content */}
             <div
+              id="article-body"
               className="article-body"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
